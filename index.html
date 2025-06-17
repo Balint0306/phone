@@ -1,11 +1,927 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Üdv a Pokolban</title>
-  </head>
-  <body>
-    <h1>Ez az én sötét kis világom.</h1>
-    <iframe width="600" height="480" src="https://vide0.net/e/gihb7zm97ecy" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
-  </body>
-</html>
+<!DOCTYPE html><html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MovieStream Premium</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}body{background:#0f0f13;color:#fff;overflow-x:hidden}header{background:linear-gradient(180deg,rgba(0,0,0,0.8)0%,transparent 100%);padding:20px 0;position:fixed;width:100%;z-index:1000;transition:all 0.3s ease}.scrolled{background:rgba(0,0,0,0.9)!important;backdrop-filter:blur(10px);padding:10px 0}.container{width:90%;max-width:1400px;margin:0 auto}.header-content{display:flex;justify-content:space-between;align-items:center}.logo{font-size:28px;font-weight:700;background:linear-gradient(45deg,#ff4d4d,#f9cb28);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-fill-color:transparent;animation:gradient 8s ease infinite}.nav-links{display:flex;gap:25px}.nav-links a{color:#fff;text-decoration:none;font-weight:500;position:relative;transition:all 0.3s}.nav-links a:after{content:'';position:absolute;width:0;height:2px;background:linear-gradient(90deg,#ff4d4d,#f9cb28);bottom:-5px;left:0;transition:width 0.3s}.nav-links a:hover:after{width:100%}.user-actions{display:flex;gap:15px;align-items:center}.search-btn,.random-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s}.search-btn:hover,.random-btn:hover{background:rgba(255,255,255,0.2);transform:scale(1.1)}.search-container{position:fixed;top:-100%;left:0;width:100%;background:rgba(0,0,0,0.95);z-index:999;padding:20px 0;transition:all 0.5s ease;backdrop-filter:blur(10px)}.search-container.active{top:80px}.search-box{width:100%;max-width:800px;margin:0 auto;position:relative}.search-input{width:100%;padding:15px 20px;border:none;border-radius:30px;background:rgba(255,255,255,0.1);color:#fff;font-size:16px;outline:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s}.search-input:focus{border-color:#ff4d4d;background:rgba(255,255,255,0.05)}.search-results{max-height:70vh;overflow-y:auto;margin-top:20px;display:none;background:rgba(30,30,40,0.9);border-radius:10px;padding:10px}.search-results.active{display:block}.search-item{display:flex;gap:15px;padding:10px;border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.3s}.search-item:hover{background:rgba(255,255,255,0.05)}.search-item-img{width:60px;height:90px;border-radius:5px;object-fit:cover}.search-item-info{flex:1}.search-item-title{font-weight:600;margin-bottom:5px}.search-item-meta{font-size:12px;color:#aaa}.hero{height:70vh;background-size:cover;background-position:center;display:flex;align-items:center;position:relative;margin-bottom:50px}.hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(0,0,0,0.9)0%,rgba(0,0,0,0.5)50%,transparent 100%)}.hero-content{max-width:600px;position:relative;z-index:2;padding:0 40px}.hero-title{font-size:48px;font-weight:700;margin-bottom:15px;text-shadow:2px 2px 10px rgba(0,0,0,0.5)}.hero-desc{font-size:16px;line-height:1.6;margin-bottom:25px;color:#ddd}.hero-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.hero-meta-item{display:flex;align-items:center;gap:5px;font-size:14px}.hero-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 5px 15px rgba(255,77,77,0.3);display:inline-flex;align-items:center;gap:8px}.hero-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,77,77,0.4)}.hero-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;box-shadow:none}.hero-btn.outline:hover{background:rgba(255,255,255,0.1)}.content-section{margin-bottom:50px}.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-title{font-size:24px;font-weight:600;position:relative;color:#f9cb28}.section-title:after{content:'';position:absolute;bottom:-5px;left:0;width:50px;height:3px;background:linear-gradient(90deg,#ff4d4d,#f9cb28)}.section-link{color:#aaa;text-decoration:none;font-size:14px;transition:all 0.3s;display:flex;align-items:center;gap:5px}.section-link:hover{color:#f9cb28}.movie-row-container{overflow:hidden;position:relative}.movie-row{display:flex;gap:15px;padding:10px 0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.movie-row::-webkit-scrollbar{display:none}.movie-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.5s cubic-bezier(0.175,0.885,0.32,1.275);transform-style:preserve-3d;flex:0 0 auto;width:200px;scroll-snap-align:start}.movie-card:hover{transform:translateY(-10px)scale(1.03);box-shadow:0 20px 30px rgba(0,0,0,0.3)}.movie-card:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,0.8)0%,transparent 50%);z-index:1;opacity:0;transition:all 0.3s}.movie-card:hover:before{opacity:1}.movie-poster{width:100%;height:300px;object-fit:cover;transition:all 0.5s}.movie-card:hover .movie-poster{transform:scale(1.1)}.movie-info{position:absolute;bottom:0;left:0;width:100%;padding:20px;z-index:2;transform:translateY(20px);opacity:0;transition:all 0.3s}.movie-card:hover .movie-info{transform:translateY(0);opacity:1}.movie-title{font-size:16px;font-weight:600;margin-bottom:5px}.movie-meta{display:flex;justify-content:space-between;font-size:12px;color:#aaa}.movie-rating{display:flex;align-items:center;gap:5px;color:#f9cb28}.video-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:2000;opacity:0;visibility:hidden;transition:all 0.3s}.video-overlay.active{opacity:1;visibility:visible}.video-container{width:90%;max-width:1200px;position:relative}.close-btn{position:absolute;top:-50px;right:0;background:none;border:none;color:#fff;font-size:30px;cursor:pointer;transition:all 0.3s}.close-btn:hover{color:#ff4d4d}.video-player{width:100%;height:0;padding-bottom:56.25%;position:relative;background:#000;border-radius:10px;overflow:hidden}.video-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}.season-selector{position:absolute;bottom:60px;left:20px;z-index:3}.season-btn{background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:5px 15px;border-radius:20px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:5px}.season-btn:hover{background:rgba(255,255,255,0.2)}.season-dropdown{position:absolute;bottom:100%;left:0;background:rgba(0,0,0,0.9);border-radius:10px;overflow:hidden;min-width:150px;display:none}.season-dropdown.active{display:block}.season-item{padding:10px 15px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:8px}.season-item:hover{background:rgba(255,255,255,0.1)}.episode-list{display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px;margin-top:15px;padding:15px;background:rgba(0,0,0,0.7);border-radius:10px}.episode-list.active{display:grid}.episode-card{background:rgba(30,30,40,0.9);padding:10px;border-radius:5px;text-align:center;cursor:pointer;transition:all 0.3s}.episode-card:hover{background:rgba(255,77,77,0.2);transform:translateY(-3px)}.continue-watching{margin-top:30px}.continue-row{display:flex;gap:15px;padding:10px 0;overflow-x:auto;scroll-snap-type:x mandatory}.continue-card{position:relative;border-radius:10px;overflow:hidden;flex:0 0 auto;width:180px;scroll-snap-align:start}.continue-progress{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,#ff4d4d,#f9cb28)}.continue-empty{text-align:center;padding:40px 0;color:#aaa}.filters{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.filter-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 15px;border-radius:20px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:5px}.filter-btn.active{background:linear-gradient(45deg,#ff4d4d,#f9cb28);color:#000}.filter-btn:hover{background:rgba(255,255,255,0.2)}.loading{display:flex;justify-content:center;align-items:center;height:200px}.spinner{width:40px;height:40px;border:4px solid rgba(255,255,255,0.1);border-radius:50%;border-top-color:#ff4d4d;animation:spin 1s ease infinite}@keyframes spin{100%{transform:rotate(360deg)}}@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.fade-in{animation:fadeIn 0.5s ease forwards}.detail-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1500;opacity:0;visibility:hidden;transition:all 0.3s;display:flex;justify-content:center;align-items:center}.detail-overlay.active{opacity:1;visibility:visible}.detail-container{width:90%;max-width:900px;background:#14141a;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;max-height:90vh}.detail-header{position:relative}.detail-backdrop{width:100%;height:300px;object-fit:cover}.detail-close{position:absolute;top:20px;right:20px;background:rgba(0,0,0,0.7);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s}.detail-close:hover{background:#ff4d4d}.detail-content{display:flex;padding:30px;gap:30px;overflow-y:auto}.detail-poster{width:250px;height:375px;border-radius:10px;object-fit:cover;flex-shrink:0}.detail-info{flex:1}.detail-title{font-size:32px;margin-bottom:15px;color:#f9cb28}.detail-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.detail-meta-item{display:flex;align-items:center;gap:5px;font-size:14px;color:#ddd}.detail-overview{margin-bottom:25px;line-height:1.6;color:#ccc}.detail-buttons{display:flex;gap:15px;margin-top:30px;flex-wrap:wrap}.detail-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.detail-btn:hover{transform:translateY(-3px)}.detail-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff}.detail-btn.outline:hover{background:rgba(255,255,255,0.1)}.next-episode-btn{background:linear-gradient(45deg,#28a745,#7cfc00);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.next-episode-btn:hover{transform:translateY(-3px)}.scroll-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10}.scroll-btn:hover{background:rgba(255,255,255,0.2)}.scroll-btn.left{left:10px}.scroll-btn.right{right:10px}.my-list-section{margin-top:30px}.my-list-empty{text-align:center;padding:40px 0;color:#aaa}@media (max-width:768px){.hero{height:50vh}.hero-title{font-size:32px}.hero-desc{font-size:14px}.hero-content{padding:0 20px}.movie-card{width:150px}.nav-links{gap:15px}.detail-content{flex-direction:column}.detail-poster{width:100%;height:auto}.detail-buttons{flex-direction:column}.scroll-btn{display:none}}@media (max-width:480px){.header-content{flex-direction:column;gap:15px}.nav-links{gap:10px;font-size:14px}.user-actions{position:absolute;top:20px;right:20px}.hero{height:60vh;margin-bottom:30px}.section-title{font-size:20px}.detail-container{max-height:80vh}.detail-content{padding:15px}.detail-title{font-size:24px}.detail-meta-item{font-size:12px}.detail-btn{padding:10px 20px}}.no-content{text-align:center;padding:50px 0;color:#aaa}.random-hero{background-size:cover;background-position:center;position:relative}.random-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(0,0,0,0.9)0%,rgba(0,0,0,0.5)50%,transparent 100%)}.random-content{position:relative;z-index:2;padding:40px}.random-title{font-size:42px;margin-bottom:15px;color:#f9cb28}.random-desc{max-width:600px;margin-bottom:20px;line-height:1.6;color:#ddd}.random-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.random-meta-item{display:flex;align-items:center;gap:5px;font-size:14px;color:#ddd}.random-btn-group{display:flex;gap:15px;flex-wrap:wrap}.random-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 25px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.random-btn:hover{transform:translateY(-3px)}.random-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff}.random-btn.outline:hover{background:rgba(255,255,255,0.1)}</style></head><body><header><div class="container"><div class="header-content"><div class="logo">MovieStream</div><nav class="nav-links"><a href="#" class="nav-link active" data-type="all"><i class="fas fa-home"></i> Főoldal</a><a href="#" class="nav-link" data-type="movie"><i class="fas fa-film"></i> Filmek</a><a href="#" class="nav-link" data-type="tv"><i class="fas fa-tv"></i> Sorozatok</a><a href="#" class="nav-link" data-type="my-list"><i class="fas fa-bookmark"></i> Listám</a></nav><div class="user-actions"><button class="random-btn" id="randomBtn" title="Nem tudom mit nézzek"><i class="fas fa-random"></i></button><button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button></div></div></div></header><div class="search-container" id="searchContainer"><div class="container"><div class="search-box"><input type="text" class="search-input" id="searchInput" placeholder="Keresés filmek és sorozatok között..."><div class="search-results" id="searchResults"></div></div></div></div><section class="hero random-hero" id="randomHero"><div class="container"><div class="random-content"><h1 class="random-title" id="randomTitle">Betöltés...</h1><div class="random-meta" id="randomMeta"></div><p class="random-desc" id="randomDesc"></p><div class="random-btn-group"><button class="random-btn" id="playRandomBtn"><i class="fas fa-play"></i> Lejátszás</button><button class="random-btn outline" id="newRandomBtn"><i class="fas fa-sync-alt"></i> Új ajánlás</button></div></div></div></section><main class="container"><section class="continue-watching"><h2 class="section-title"><i class="fas fa-history"></i> Folytasd a nézést</h2><div class="continue-row" id="continueWatching"><div class="continue-empty"><i class="fas fa-film" style="font-size:40px;margin-bottom:15px;"></i><p>Még nem néztél meg semmit.</p></div></div></section><section class="content-section"><div class="section-header"><h2 class="section-title"><i class="fas fa-fire"></i> Népszerű filmek</h2><a href="#" class="section-link">Összes megtekintése <i class="fas fa-chevron-right"></i></a></div><div class="filters"><button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> Összes</button><button class="filter-btn" data-filter="action"><i class="fas fa-explosion"></i> Akció</button><button class="filter-btn" data-filter="comedy"><i class="fas fa-laugh-squint"></i> Vígjáték</button><button class="filter-btn" data-filter="drama"><i class="fas fa-theater-masks"></i> Dráma</button><button class="filter-btn" data-filter="sci-fi"><i class="fas fa-robot"></i> Sci-Fi</button></div><div class="movie-row-container"><div class="movie-row" id="latestMovies"></div></div></section><section class="content-section"><div class="section-header"><h2 class="section-title"><i class="fas fa-star"></i> Népszerű sorozatok</h2><a href="#" class="section-link">Összes megtekintése <i class="fas fa-chevron-right"></i></a></div><div class="movie-row-container"><div class="movie-row" id="popularSeries"></div></div></section><section class="content-section my-list-section" id="myListSection" style="display:none"><div class="section-header"><h2 class="section-title"><i class="fas fa-bookmark"></i> Saját listám</h2></div><div class="movie-row-container"><div class="movie-row" id="myListContent"></div><div class="my-list-empty" id="myListEmpty"><i class="fas fa-bookmark" style="font-size:40px;margin-bottom:15px;"></i><p>Még nincs a listádban tartalom.</p></div></div></section></main><div class="detail-overlay" id="detailOverlay"><div class="detail-container"><div class="detail-header"><img src="" alt="" class="detail-backdrop" id="detailBackdrop"><button class="detail-close" id="detailClose"><i class="fas fa-times"></i></button></div><div class="detail-content"><img src="" alt="" class="detail-poster" id="detailPoster"><div class="detail-info"><h1 class="detail-title" id="detailTitle"></h1><div class="detail-meta" id="detailMeta"></div><p class="detail-overview" id="detailOverview"></p><div class="detail-buttons" id="detailButtons"><button class="detail-btn" id="detailPlayBtn"><i class="fas fa-play"></i> Lejátszás</button><button class="detail-btn outline" id="detailAddBtn"><i class="fas fa-plus"></i> Listához adás</button><button class="next-episode-btn" id="nextEpisodeBtn" style="display:none"><i class="fas fa-forward"></i> Következő rész</button></div><div id="seasonSelectorContainer"></div><div id="episodeListContainer"></div></div></div></div></div><div class="video-overlay" id="videoOverlay"><div class="video-container"><button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button><div class="video-player" id="videoPlayer"></div></div></div><script>
+// Adatbázis - szépen formázva a módosíthatóság érdekében
+const mockDatabase = {
+    movies: [
+        {
+            id: 1,
+            title: "A Meg",
+            year: 2018,
+            genre: "sci-fi",
+            rating: 6.4,
+            duration: 105,
+            poster: "https://image.tmdb.org/t/p/w500/xqR4ABkFTFYe8NDJi3knwWX7zfn.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+            desc: "Egy óriási, ősi cápával kell szembenéznie egy bátor oceanográfusnak, hogy megmentse a legénységét egy elsüllyedt tengeralattjáróról.",
+            video: "https://www.youtube.com/embed/MY1H5tZuB4o"
+        },
+        {
+            id: 2,
+            title: "Viharsziget",
+            year: 2020,
+            genre: "action",
+            rating: 7.1,
+            duration: 107,
+            poster: "https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
+            desc: "Egy csapat elit zsoldoskatona egy titkos szigeten találja magát, ahol látszólag minden élőlény genetikai kísérletek tárgya.",
+            video: "https://www.youtube.com/embed/EH4hO7U8io4"
+        },
+        {
+            id: 3,
+            title: "A Hangya és a Darázs",
+            year: 2023,
+            genre: "comedy",
+            rating: 7.4,
+            duration: 118,
+            poster: "https://image.tmdb.org/t/p/w500/9HFFwZOTBBhf4V6NaV1IPIxoeOQ.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/2rmK7mnchw9XrkeX0D9a7i4o6qC.jpg",
+            desc: "Scott Lang és Hope van Dyne, a Hangya és a Darázs együtt kénytelenek felfedezni a kvantumvilágot, miközben családjukkal is foglalkozniuk kell.",
+            video: "https://www.youtube.com/embed/8_rTIAOohas"
+        },
+        {
+            id: 4,
+            title: "Dűne",
+            year: 2021,
+            genre: "sci-fi",
+            rating: 8.0,
+            duration: 155,
+            poster: "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/jYEW5xZkZk2WTrdbMGAPFuBqbDc.jpg",
+            desc: "Paul Atreides, egy tehetséges fiatal férfi, aki nagy sorsra született, veszélyes küldetésre indul egy veszélyes bolygó megmentésére.",
+            video: "https://www.youtube.com/embed/n9xhJrPXop4"
+        },
+        {
+            id: 5,
+            title: "John Wick 4",
+            year: 2023,
+            genre: "action",
+            rating: 7.8,
+            duration: 169,
+            poster: "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/h8gHn0OzBoaefsYseUByqsmEDMY.jpg",
+            desc: "John Wick újra menekülésben van, miközben a világ leghalálosabb bérgyilkosai üldözőbe veszik.",
+            video: "https://www.youtube.com/embed/qEVUtrk8_B4"
+        },
+        {
+            id: 6,
+            title: "Barbie",
+            year: 2023,
+            genre: "comedy",
+            rating: 7.3,
+            duration: 114,
+            poster: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+            desc: "Barbie a tökéletes Barbie-világban él, amíg egy nap rá nem jön, hogy nem felel meg a szépségideáloknak.",
+            video: "https://www.youtube.com/embed/pBk4NYhWNMM"
+        },
+        {
+            id: 7,
+            title: "Oppenheimer",
+            year: 2023,
+            genre: "drama",
+            rating: 8.5,
+            duration: 180,
+            poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+            desc: "J. Robert Oppenheimer története, az atombomba atyjának élete és a Manhattan terv.",
+            video: "https://www.youtube.com/embed/uYPbbksJxIg"
+        },
+        {
+            id: 8,
+            title: "A kis hableány",
+            year: 2023,
+            genre: "drama",
+            rating: 7.2,
+            duration: 135,
+            poster: "https://image.tmdb.org/t/p/w500/ym1dxyOk4jFcSl4Q2zmRrA5BEEN.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/znUYFf0Sez5lUmxJ3msGfIAF9Te.jpg",
+            desc: "Ariel, a kíváncsi kis hableány, aki szeretne emberré válni, hogy szerelmét kövesse a szárazföldön.",
+            video: "https://www.youtube.com/embed/kpGo2_d3oYE"
+        }
+    ],
+    series: [
+        {
+            id: 101,
+            title: "Trónok harca",
+            year: 2011,
+            genre: "drama",
+            rating: 8.9,
+            seasons: 8,
+            poster: "https://image.tmdb.org/t/p/w500/7WUHnWGx5OO145IRxPDUkQSh4C7.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/1XDDXPXGiI8id7MrU2K1WwB6m1Q.jpg",
+            desc: "Nemes családok harca a Westeros trónjáért, miközben egy ősi ellenség visszatér a falak mögül.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1011,
+                            title: "Tél közeleg",
+                            desc: "A Stark család egy farkaskölyköt talál, Ned Stark a Király Segítője lesz.",
+                            duration: 62,
+                            video: "https://www.youtube.com/embed/iGp_N3Ir7Do"
+                        },
+                        {
+                            id: 1012,
+                            title: "A király útja",
+                            desc: "Robert király és kísérete Északra indul, Jon Havas a Fal felé veszi az irányt.",
+                            duration: 56,
+                            video: "https://www.youtube.com/embed/6VJ9vslsMkY"
+                        }
+                    ]
+                },
+                {
+                    season: 2,
+                    episodes: [
+                        {
+                            id: 1021,
+                            title: "Északon",
+                            desc: "Tyrion megérkezik Királyvárba, Jon Havas és a Fal őrei túlélési küzdelmet vívnak.",
+                            duration: 53,
+                            video: "https://www.youtube.com/embed/tU9k6kQkTCQ"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 102,
+            title: "Stranger Things",
+            year: 2016,
+            genre: "sci-fi",
+            rating: 8.7,
+            seasons: 4,
+            poster: "https://image.tmdb.org/t/p/w500/xda7MLR3zPqpx3ttVYoWqG8hZJm.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
+            desc: "Egy kisvárosban eltűnik egy fiú, és titokzatos erők kezdenek játszadozni a lakosokkal.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1021,
+                            title: "Az első fejezet",
+                            desc: "Will eltűnése után anyja és barátai keresni kezdik, miközben furcsa dolgok történnek.",
+                            duration: 48,
+                            video: "https://www.youtube.com/embed/b9EkMc79ZSU"
+                        },
+                        {
+                            id: 1022,
+                            title: "A második fejezet",
+                            desc: "Lucas, Mike és Dustin találkoznak Elevennel, Joyce furcsa jeleket kap Willtől.",
+                            duration: 55,
+                            video: "https://www.youtube.com/embed/9rJY4h64H1w"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 103,
+            title: "The Witcher",
+            year: 2019,
+            genre: "action",
+            rating: 8.2,
+            seasons: 3,
+            poster: "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/7q448EVOnuE3gVAx24krzO7SNXM.jpg",
+            desc: "Geralt of Rivia, egy mutáns szörnyvadász küzdelmei egy gonosz erőkkel teli világban.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1031,
+                            title: "A vég kezdete",
+                            desc: "Geralt váratlanul összefonódik egy varázslónővel és egy veszélyes hercegnővel.",
+                            duration: 60,
+                            video: "https://www.youtube.com/embed/ndl1W4ltcmg"
+                        },
+                        {
+                            id: 1032,
+                            title: "Négy nyíl",
+                            desc: "Geralt kénytelen megvédeni Cirit, miközben Yennefer átváltozása kezdődik.",
+                            duration: 61,
+                            video: "https://www.youtube.com/embed/1O3iRDiJVP0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 104,
+            title: "Breaking Bad",
+            year: 2008,
+            genre: "drama",
+            rating: 9.5,
+            seasons: 5,
+            poster: "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+            desc: "Egy középkorú kémiatanár, aki rákos beteg, drogkirály akar lenni, hogy családjának biztosítson.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1041,
+                            title: "Pilot",
+                            desc: "Walter White, egy középiskolai kémiatanár megtudja, hogy tüdőrákja van.",
+                            duration: 58,
+                            video: "https://www.youtube.com/embed/HhesaQXLuRY"
+                        },
+                        {
+                            id: 1042,
+                            title: "Az elefántcsonttorony",
+                            desc: "Walter és Jesse első drogüzletük után menekülni kényszerülnek.",
+                            duration: 48,
+                            video: "https://www.youtube.com/embed/_L6G8O5ifW8"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 105,
+            title: "The Mandalorian",
+            year: 2019,
+            genre: "sci-fi",
+            rating: 8.7,
+            seasons: 3,
+            poster: "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/d4Ja9AMFoWEtTPKFrzQac0ReYb.jpg",
+            desc: "Egy magányos mandalóriai zsoldos kalandjai a Star Wars univerzum külső peremén.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1051,
+                            title: "1. fejezet",
+                            desc: "A Mandalóriai egy különös megbízást kap, ami mindennel megváltoztatja az életét.",
+                            duration: 39,
+                            video: "https://www.youtube.com/embed/aOC8E8z_ifw"
+                        },
+                        {
+                            id: 1052,
+                            title: "2. fejezet",
+                            desc: "A Mandalóriai megpróbálja visszaszerezni a rablóktól a Baby Yodát.",
+                            duration: 32,
+                            video: "https://www.youtube.com/embed/FAHzzQ8_9ig"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 106,
+            title: "Peaky Blinders",
+            year: 2013,
+            genre: "drama",
+            rating: 8.8,
+            seasons: 6,
+            poster: "https://image.tmdb.org/t/p/w500/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+            backdrop: "https://image.tmdb.org/t/p/original/wiE9doxiLwq3WCGamDIOb2PqBqc.jpg",
+            desc: "A Shelby család birminghami bűnöző csoportjának története az 1920-as években.",
+            seasons: [
+                {
+                    season: 1,
+                    episodes: [
+                        {
+                            id: 1061,
+                            title: "1. rész",
+                            desc: "Thomas Shelby és családja bűnszervezetét fenyegeti egy fegyverraktár ellopása.",
+                            duration: 58,
+                            video: "https://www.youtube.com/embed/oVzVdvGIC7U"
+                        },
+                        {
+                            id: 1062,
+                            title: "2. rész",
+                            desc: "Thomas terveket sző a család jövőjéért, miközben a rendőrség nyomoz.",
+                            duration: 57,
+                            video: "https://www.youtube.com/embed/2nsT9uQPIrk"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+
+// Globális változók
+let continueWatching = JSON.parse(localStorage.getItem('continueWatching')) || [];
+let myList = JSON.parse(localStorage.getItem('myList')) || [];
+let currentRandomItem = null;
+let currentContentType = 'all';
+let currentDetailItem = null;
+let currentEpisode = null;
+
+// Véletlenszerű tartalom betöltése
+function loadRandomContent() {
+    const allContent = [...mockDatabase.movies, ...mockDatabase.series];
+    const randomItem = allContent[Math.floor(Math.random() * allContent.length)];
+    currentRandomItem = randomItem;
+    document.getElementById('randomHero').style.backgroundImage = `linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%), url(${randomItem.backdrop || randomItem.poster})`;
+    renderRandomContent(randomItem);
+}
+
+// Véletlenszerű tartalom megjelenítése
+function renderRandomContent(item) {
+    document.getElementById('randomTitle').textContent = item.title;
+    document.getElementById('randomDesc').textContent = item.desc || 'Nincs elérhető leírás.';
+    const metaContainer = document.getElementById('randomMeta');
+    metaContainer.innerHTML = '';
+    const yearEl = document.createElement('div');
+    yearEl.className = 'random-meta-item';
+    yearEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.year}`;
+    metaContainer.appendChild(yearEl);
+    const ratingEl = document.createElement('div');
+    ratingEl.className = 'random-meta-item';
+    ratingEl.innerHTML = `<i class="fas fa-star"></i> ${item.rating}/10`;
+    metaContainer.appendChild(ratingEl);
+    const genreEl = document.createElement('div');
+    genreEl.className = 'random-meta-item';
+    genreEl.innerHTML = `<i class="fas fa-tag"></i> ${getHungarianGenre(item.genre)}`;
+    metaContainer.appendChild(genreEl);
+    const typeEl = document.createElement('div');
+    typeEl.className = 'random-meta-item';
+    const isMovie = item.duration;
+    typeEl.innerHTML = isMovie ? '<i class="fas fa-film"></i> Film' : '<i class="fas fa-tv"></i> Sorozat';
+    metaContainer.appendChild(typeEl);
+}
+
+// Filmek megjelenítése
+function renderMovies() {
+    const moviesRow = document.getElementById('latestMovies');
+    moviesRow.innerHTML = mockDatabase.movies.map(movie => `
+        <div class="movie-card" data-id="${movie.id}" data-type="movie">
+            <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
+            <div class="movie-info">
+                <h3 class="movie-title">${movie.title}</h3>
+                <div class="movie-meta">
+                    <span>${movie.year}</span>
+                    <span>${getHungarianGenre(movie.genre)}</span>
+                </div>
+                <div class="movie-rating">⭐ ${movie.rating}</div>
+            </div>
+        </div>
+    `).join('');
+    document.querySelectorAll('#latestMovies .movie-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const movieId = parseInt(card.dataset.id);
+            const movie = mockDatabase.movies.find(m => m.id === movieId);
+            if (movie) showContentDetails(movie, 'movie');
+        });
+    });
+}
+
+// Sorozatok megjelenítése
+function renderSeries() {
+    const seriesRow = document.getElementById('popularSeries');
+    seriesRow.innerHTML = mockDatabase.series.map(series => `
+        <div class="movie-card" data-id="${series.id}" data-type="tv">
+            <img src="${series.poster}" alt="${series.title}" class="movie-poster">
+            <div class="movie-info">
+                <h3 class="movie-title">${series.title}</h3>
+                <div class="movie-meta">
+                    <span>${series.year}</span>
+                    <span>${getHungarianGenre(series.genre)}</span>
+                </div>
+                <div class="movie-rating">⭐ ${series.rating}</div>
+            </div>
+        </div>
+    `).join('');
+    document.querySelectorAll('#popularSeries .movie-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const seriesId = parseInt(card.dataset.id);
+            const series = mockDatabase.series.find(s => s.id === seriesId);
+            if (series) showContentDetails(series, 'tv');
+        });
+    });
+}
+
+// Saját lista megjelenítése
+function renderMyList() {
+    const myListContent = document.getElementById('myListContent');
+    const myListEmpty = document.getElementById('myListEmpty');
+    
+    if (myList.length === 0) {
+        myListContent.style.display = 'none';
+        myListEmpty.style.display = 'block';
+        return;
+    }
+    
+    myListContent.style.display = 'flex';
+    myListEmpty.style.display = 'none';
+    
+    myListContent.innerHTML = myList.map(item => {
+        const content = item.type === 'movie' 
+            ? mockDatabase.movies.find(m => m.id === item.id)
+            : mockDatabase.series.find(s => s.id === item.id);
+        if (!content) return '';
+        return `
+            <div class="movie-card" data-id="${content.id}" data-type="${item.type}">
+                <img src="${content.poster}" alt="${content.title}" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">${content.title}</h3>
+                    <div class="movie-meta">
+                        <span>${content.year}</span>
+                        <span>${getHungarianGenre(content.genre)}</span>
+                    </div>
+                    <div class="movie-rating">⭐ ${content.rating}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    document.querySelectorAll('#myListContent .movie-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const contentId = parseInt(card.dataset.id);
+            const contentType = card.dataset.type;
+            const content = contentType === 'movie' 
+                ? mockDatabase.movies.find(m => m.id === contentId)
+                : mockDatabase.series.find(s => s.id === contentId);
+            if (content) showContentDetails(content, contentType);
+        });
+    });
+}
+
+// Tartalom részleteinek megjelenítése
+function showContentDetails(item, type) {
+    currentDetailItem = { ...item, type };
+    document.getElementById('detailTitle').textContent = item.title;
+    document.getElementById('detailOverview').textContent = item.desc || 'Nincs elérhető leírás.';
+    document.getElementById('detailPoster').src = item.poster;
+    document.getElementById('detailBackdrop').src = item.backdrop || item.poster;
+    
+    const metaContainer = document.getElementById('detailMeta');
+    metaContainer.innerHTML = '';
+    
+    const yearEl = document.createElement('div');
+    yearEl.className = 'detail-meta-item';
+    yearEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.year}`;
+    metaContainer.appendChild(yearEl);
+    
+    const ratingEl = document.createElement('div');
+    ratingEl.className = 'detail-meta-item';
+    ratingEl.innerHTML = `<i class="fas fa-star"></i> ${item.rating}/10`;
+    metaContainer.appendChild(ratingEl);
+    
+    const genreEl = document.createElement('div');
+    genreEl.className = 'detail-meta-item';
+    genreEl.innerHTML = `<i class="fas fa-tag"></i> ${getHungarianGenre(item.genre)}`;
+    metaContainer.appendChild(genreEl);
+    
+    if (type === 'movie') {
+        const durationEl = document.createElement('div');
+        durationEl.className = 'detail-meta-item';
+        durationEl.innerHTML = `<i class="fas fa-clock"></i> ${Math.floor(item.duration/60)}ó ${item.duration%60}p`;
+        metaContainer.appendChild(durationEl);
+    } else {
+        const seasonsEl = document.createElement('div');
+        seasonsEl.className = 'detail-meta-item';
+        seasonsEl.innerHTML = `<i class="fas fa-bookmark"></i> ${item.seasons.length} évad`;
+        metaContainer.appendChild(seasonsEl);
+    }
+    
+    // Listához adás gomb állapota
+    const isInMyList = myList.some(x => x.id === item.id && x.type === type);
+    const addBtn = document.getElementById('detailAddBtn');
+    addBtn.innerHTML = isInMyList ? '<i class="fas fa-check"></i> Listában van' : '<i class="fas fa-plus"></i> Listához adás';
+    addBtn.classList.toggle('outline', !isInMyList);
+    
+    // Sorozat esetén évadok és részek megjelenítése
+    const seasonSelectorContainer = document.getElementById('seasonSelectorContainer');
+    const episodeListContainer = document.getElementById('episodeListContainer');
+    const nextEpisodeBtn = document.getElementById('nextEpisodeBtn');
+    
+    if (type === 'tv') {
+        seasonSelectorContainer.innerHTML = `
+            <div class="season-selector">
+                <button class="season-btn" id="seasonBtn"><i class="fas fa-bookmark"></i> Válassz évadot</button>
+                <div class="season-dropdown" id="seasonDropdown">
+                    ${item.seasons.map(season => `
+                        <div class="season-item" data-season="${season.season}">
+                            <i class="fas fa-book"></i> ${season.season}. évad
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('seasonBtn').addEventListener('click', function() {
+            document.getElementById('seasonDropdown').classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.season-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const seasonNum = parseInt(this.dataset.season);
+                const season = currentDetailItem.seasons.find(s => s.season === seasonNum);
+                if (season) renderEpisodes(season);
+                document.getElementById('seasonDropdown').classList.remove('active');
+                document.getElementById('seasonBtn').innerHTML = `<i class="fas fa-book"></i> ${seasonNum}. évad`;
+            });
+        });
+        
+        // Alapértelmezettként az első évad
+        if (item.seasons.length > 0) {
+            renderEpisodes(item.seasons[0]);
+            document.getElementById('seasonBtn').innerHTML = `<i class="fas fa-book"></i> 1. évad`;
+        }
+        
+        nextEpisodeBtn.style.display = 'none';
+    } else {
+        seasonSelectorContainer.innerHTML = '';
+        episodeListContainer.innerHTML = '';
+        nextEpisodeBtn.style.display = 'none';
+    }
+    
+    document.getElementById('detailOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Epizódok megjelenítése
+function renderEpisodes(season) {
+    const episodeListContainer = document.getElementById('episodeListContainer');
+    episodeListContainer.innerHTML = `
+        <div class="episode-list active">
+            ${season.episodes.map(episode => `
+                <div class="episode-card" data-episode="${episode.id}">
+                    <h4>${episode.title}</h4>
+                    <p>${episode.desc || 'Nincs leírás'}</p>
+                    <div class="movie-meta">
+                        <span>${episode.duration} perc</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    document.querySelectorAll('.episode-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const episodeId = parseInt(card.dataset.episode);
+            const episode = season.episodes.find(e => e.id === episodeId);
+            if (episode) {
+                currentEpisode = { ...episode, season: season.season };
+                openVideoPlayer(
+                    episode.video, 
+                    currentDetailItem.id, 
+                    'tv', 
+                    `${currentDetailItem.title} - ${season.season}. évad ${season.episodes.findIndex(e => e.id === episode.id) + 1}. rész`, 
+                    currentDetailItem.poster
+                );
+            }
+        });
+    });
+}
+
+// Videó lejátszó megnyitása
+function openVideoPlayer(videoUrl, contentId, contentType, title, posterPath) {
+    const videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.innerHTML = `<iframe src="${videoUrl}?autoplay=1" allowfullscreen></iframe>`;
+    document.getElementById('videoOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    updateContinueWatching(contentId, contentType, title, posterPath, videoUrl);
+}
+
+// "Folytasd a nézést" frissítése
+function updateContinueWatching(contentId, contentType, title, posterPath, videoUrl) {
+    const existingIndex = continueWatching.findIndex(x => x.id === contentId && x.type === contentType);
+    const newItem = {
+        id: contentId,
+        type: contentType,
+        title,
+        poster: posterPath,
+        videoUrl,
+        progress: 0,
+        duration: contentType === 'movie' 
+            ? mockDatabase.movies.find(m => m.id === contentId)?.duration || 120 
+            : 45
+    };
+    if (existingIndex >= 0) continueWatching[existingIndex] = newItem;
+    else {
+        continueWatching.unshift(newItem);
+        if (continueWatching.length > 6) continueWatching.pop();
+    }
+    localStorage.setItem('continueWatching', JSON.stringify(continueWatching));
+    renderContinueWatching();
+}
+
+// "Folytasd a nézést" megjelenítése
+function renderContinueWatching() {
+    const continueRow = document.getElementById('continueWatching');
+    if (continueWatching.length === 0) {
+        continueRow.innerHTML = `
+            <div class="continue-empty">
+                <i class="fas fa-film" style="font-size:40px;margin-bottom:15px;"></i>
+                <p>Még nem néztél meg semmit.</p>
+            </div>
+        `;
+        return;
+    }
+    continueRow.innerHTML = continueWatching.map(item => {
+        const progressPercent = item.progress ? (item.progress / item.duration) * 100 : 0;
+        return `
+            <div class="continue-card" data-id="${item.id}" data-type="${item.type}">
+                <img src="${item.poster}" alt="${item.title}" class="movie-poster">
+                <div class="continue-progress" style="width:${progressPercent}%"></div>
+            </div>
+        `;
+    }).join('');
+    document.querySelectorAll('#continueWatching .continue-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const itemId = parseInt(card.dataset.id);
+            const itemType = card.dataset.type;
+            const item = continueWatching.find(x => x.id === itemId && x.type === itemType);
+            if (item) openVideoPlayer(item.videoUrl, item.id, item.type, item.title, item.poster);
+        });
+    });
+}
+
+// Műfajok magyarul
+function getHungarianGenre(genre) {
+    const genreMap = {
+        'action': 'Akció', 'comedy': 'Vígjáték', 'drama': 'Dráma', 'sci-fi': 'Sci-Fi',
+        'horror': 'Horror', 'romance': 'Romantikus', 'thriller': 'Thriller',
+        'fantasy': 'Fantasy', 'animation': 'Animáció'
+    };
+    return genreMap[genre] || genre;
+}
+
+// Tartalom típus szerinti szűrés
+function filterContentByType(type) {
+    currentContentType = type;
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    document.querySelector(`.nav-link[data-type="${type}"]`).classList.add('active');
+    
+    document.getElementById('latestMovies').style.display = 'none';
+    document.getElementById('popularSeries').style.display = 'none';
+    document.getElementById('myListSection').style.display = 'none';
+    document.querySelector('.filters').style.display = 'none';
+    
+    if (type === 'all') {
+        document.getElementById('latestMovies').style.display = 'flex';
+        document.getElementById('popularSeries').style.display = 'flex';
+        document.querySelector('.filters').style.display = 'flex';
+    } else if (type === 'movie') {
+        document.getElementById('latestMovies').style.display = 'flex';
+        document.querySelector('.filters').style.display = 'flex';
+    } else if (type === 'tv') {
+        document.getElementById('popularSeries').style.display = 'flex';
+    } else if (type === 'my-list') {
+        document.getElementById('myListSection').style.display = 'block';
+        renderMyList();
+    }
+}
+
+// Műfaj szerinti szűrés
+function filterByGenre(genre) {
+    const movies = document.querySelectorAll('#latestMovies .movie-card');
+    const series = document.querySelectorAll('#popularSeries .movie-card');
+    movies.forEach(movie => {
+        const movieId = parseInt(movie.dataset.id);
+        const movieData = mockDatabase.movies.find(m => m.id === movieId);
+        if (genre === 'all' || movieData.genre === genre) movie.style.display = 'block';
+        else movie.style.display = 'none';
+    });
+    series.forEach(show => {
+        const seriesId = parseInt(show.dataset.id);
+        const seriesData = mockDatabase.series.find(s => s.id === seriesId);
+        if (genre === 'all' || seriesData.genre === genre) show.style.display = 'block';
+        else show.style.display = 'none';
+    });
+}
+
+// Listához adás/eltávolítás
+function toggleMyList(item, type) {
+    const index = myList.findIndex(x => x.id === item.id && x.type === type);
+    if (index >= 0) {
+        myList.splice(index, 1);
+    } else {
+        myList.push({ id: item.id, type });
+    }
+    localStorage.setItem('myList', JSON.stringify(myList));
+    
+    // Frissítjük a gombot
+    const addBtn = document.getElementById('detailAddBtn');
+    const isInMyList = myList.some(x => x.id === item.id && x.type === type);
+    addBtn.innerHTML = isInMyList ? '<i class="fas fa-check"></i> Listában van' : '<i class="fas fa-plus"></i> Listához adás';
+    addBtn.classList.toggle('outline', !isInMyList);
+    
+    // Ha a saját lista nézetben vagyunk, frissítjük
+    if (currentContentType === 'my-list') {
+        renderMyList();
+    }
+}
+
+// Következő rész gomb kezelése
+function setupNextEpisodeButton() {
+    const nextEpisodeBtn = document.getElementById('nextEpisodeBtn');
+    if (!currentDetailItem || currentDetailItem.type !== 'tv' || !currentEpisode) {
+        nextEpisodeBtn.style.display = 'none';
+        return;
+    }
+    
+    const currentSeason = currentDetailItem.seasons.find(s => s.season === currentEpisode.season);
+    if (!currentSeason) {
+        nextEpisodeBtn.style.display = 'none';
+        return;
+    }
+    
+    const currentEpisodeIndex = currentSeason.episodes.findIndex(e => e.id === currentEpisode.id);
+    if (currentEpisodeIndex < 0) {
+        nextEpisodeBtn.style.display = 'none';
+        return;
+    }
+    
+    // Van-e következő rész az évadban
+    if (currentEpisodeIndex < currentSeason.episodes.length - 1) {
+        nextEpisodeBtn.style.display = 'inline-flex';
+        nextEpisodeBtn.onclick = () => {
+            const nextEpisode = currentSeason.episodes[currentEpisodeIndex + 1];
+            currentEpisode = { ...nextEpisode, season: currentEpisode.season };
+            openVideoPlayer(
+                nextEpisode.video, 
+                currentDetailItem.id, 
+                'tv', 
+                `${currentDetailItem.title} - ${currentEpisode.season}. évad ${currentEpisodeIndex + 2}. rész`, 
+                currentDetailItem.poster
+            );
+        };
+        return;
+    }
+    
+    // Van-e következő évad
+    const currentSeasonIndex = currentDetailItem.seasons.findIndex(s => s.season === currentEpisode.season);
+    if (currentSeasonIndex < currentDetailItem.seasons.length - 1) {
+        const nextSeason = currentDetailItem.seasons[currentSeasonIndex + 1];
+        if (nextSeason.episodes.length > 0) {
+            nextEpisodeBtn.style.display = 'inline-flex';
+            nextEpisodeBtn.onclick = () => {
+                const nextEpisode = nextSeason.episodes[0];
+                currentEpisode = { ...nextEpisode, season: nextSeason.season };
+                openVideoPlayer(
+                    nextEpisode.video, 
+                    currentDetailItem.id, 
+                    'tv', 
+                    `${currentDetailItem.title} - ${nextSeason.season}. évad 1. rész`, 
+                    currentDetailItem.poster
+                );
+            };
+            return;
+        }
+    }
+    
+    // Nincs több rész
+    nextEpisodeBtn.style.display = 'none';
+}
+
+// Eseményfigyelők beállítása
+function setupEventListeners() {
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        document.getElementById('searchContainer').classList.toggle('active');
+        if (document.getElementById('searchContainer').classList.contains('active')) {
+            document.getElementById('searchInput').focus();
+        }
+    });
+    document.getElementById('closeBtn').addEventListener('click', () => {
+        document.getElementById('videoOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+        document.getElementById('videoPlayer').innerHTML = '';
+    });
+    document.getElementById('videoOverlay').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('videoOverlay')) {
+            document.getElementById('videoOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('videoPlayer').innerHTML = '';
+        }
+    });
+    document.getElementById('detailClose').addEventListener('click', () => {
+        document.getElementById('detailOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    document.getElementById('detailPlayBtn').addEventListener('click', () => {
+        if (!currentDetailItem) return;
+        if (currentDetailItem.type === 'movie') {
+            openVideoPlayer(
+                currentDetailItem.video, 
+                currentDetailItem.id, 
+                'movie', 
+                currentDetailItem.title, 
+                currentDetailItem.poster
+            );
+        } else {
+            const firstSeason = currentDetailItem.seasons[0];
+            if (firstSeason && firstSeason.episodes.length > 0) {
+                currentEpisode = { ...firstSeason.episodes[0], season: firstSeason.season };
+                openVideoPlayer(
+                    firstSeason.episodes[0].video, 
+                    currentDetailItem.id, 
+                    'tv', 
+                    `${currentDetailItem.title} - 1. évad 1. rész`, 
+                    currentDetailItem.poster
+                );
+            }
+        }
+        document.getElementById('detailOverlay').classList.remove('active');
+    });
+    document.getElementById('detailAddBtn').addEventListener('click', () => {
+        if (currentDetailItem) {
+            toggleMyList(currentDetailItem, currentDetailItem.type);
+        }
+    });
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const query = this.value.trim();
+        if (query.length > 2) {
+            const allContent = [...mockDatabase.movies, ...mockDatabase.series];
+            const results = allContent.filter(item => item.title.toLowerCase().includes(query.toLowerCase()));
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = results.slice(0, 8).map(item => {
+                const isMovie = item.duration;
+                return `
+                    <div class="search-item" data-id="${item.id}" data-type="${isMovie ? 'movie' : 'tv'}">
+                        <img src="${item.poster}" alt="${item.title}" class="search-item-img">
+                        <div class="search-item-info">
+                            <div class="search-item-title">${item.title}</div>
+                            <div class="search-item-meta">${isMovie ? 'Film' : 'Sorozat'} · ${item.year}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            searchResults.classList.add('active');
+            document.querySelectorAll('.search-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const contentId = parseInt(item.dataset.id);
+                    const contentType = item.dataset.type;
+                    const content = contentType === 'movie' 
+                        ? mockDatabase.movies.find(m => m.id === contentId)
+                        : mockDatabase.series.find(s => s.id === contentId);
+                    if (content) showContentDetails(content, contentType);
+                    document.getElementById('searchContainer').classList.remove('active');
+                    document.getElementById('searchInput').value = '';
+                    searchResults.innerHTML = '';
+                    searchResults.classList.remove('active');
+                });
+            });
+        } else document.getElementById('searchResults').innerHTML = '';
+    });
+    document.getElementById('playRandomBtn').addEventListener('click', () => {
+        if (!currentRandomItem) return;
+        if (currentRandomItem.duration) {
+            openVideoPlayer(
+                currentRandomItem.video, 
+                currentRandomItem.id, 
+                'movie', 
+                currentRandomItem.title, 
+                currentRandomItem.poster
+            );
+        } else {
+            const firstSeason = currentRandomItem.seasons[0];
+            if (firstSeason && firstSeason.episodes.length > 0) {
+                currentEpisode = { ...firstSeason.episodes[0], season: firstSeason.season };
+                openVideoPlayer(
+                    firstSeason.episodes[0].video, 
+                    currentRandomItem.id, 
+                    'tv', 
+                    `${currentRandomItem.title} - 1. évad 1. rész`, 
+                    currentRandomItem.poster
+                );
+            }
+        }
+    });
+    document.getElementById('newRandomBtn').addEventListener('click', loadRandomContent);
+    document.getElementById('randomBtn').addEventListener('click', loadRandomContent);
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            filterContentByType(this.dataset.type);
+        });
+    });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            filterByGenre(this.dataset.filter);
+        });
+    });
+    
+    // Scroll esemény a headerhez
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            document.querySelector('header').classList.add('scrolled');
+        } else {
+            document.querySelector('header').classList.remove('scrolled');
+        }
+    });
+}
+
+// Oldal betöltése
+function init() {
+    setupEventListeners();
+    renderContinueWatching();
+    loadRandomContent();
+    renderMovies();
+    renderSeries();
+    filterContentByType('all');
+}
+
+document.addEventListener('DOMContentLoaded', init);</script></body></html>
