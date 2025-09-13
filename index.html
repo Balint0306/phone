@@ -1,927 +1,1420 @@
-<!DOCTYPE html><html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MovieStream Premium</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}body{background:#0f0f13;color:#fff;overflow-x:hidden}header{background:linear-gradient(180deg,rgba(0,0,0,0.8)0%,transparent 100%);padding:20px 0;position:fixed;width:100%;z-index:1000;transition:all 0.3s ease}.scrolled{background:rgba(0,0,0,0.9)!important;backdrop-filter:blur(10px);padding:10px 0}.container{width:90%;max-width:1400px;margin:0 auto}.header-content{display:flex;justify-content:space-between;align-items:center}.logo{font-size:28px;font-weight:700;background:linear-gradient(45deg,#ff4d4d,#f9cb28);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-fill-color:transparent;animation:gradient 8s ease infinite}.nav-links{display:flex;gap:25px}.nav-links a{color:#fff;text-decoration:none;font-weight:500;position:relative;transition:all 0.3s}.nav-links a:after{content:'';position:absolute;width:0;height:2px;background:linear-gradient(90deg,#ff4d4d,#f9cb28);bottom:-5px;left:0;transition:width 0.3s}.nav-links a:hover:after{width:100%}.user-actions{display:flex;gap:15px;align-items:center}.search-btn,.random-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s}.search-btn:hover,.random-btn:hover{background:rgba(255,255,255,0.2);transform:scale(1.1)}.search-container{position:fixed;top:-100%;left:0;width:100%;background:rgba(0,0,0,0.95);z-index:999;padding:20px 0;transition:all 0.5s ease;backdrop-filter:blur(10px)}.search-container.active{top:80px}.search-box{width:100%;max-width:800px;margin:0 auto;position:relative}.search-input{width:100%;padding:15px 20px;border:none;border-radius:30px;background:rgba(255,255,255,0.1);color:#fff;font-size:16px;outline:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s}.search-input:focus{border-color:#ff4d4d;background:rgba(255,255,255,0.05)}.search-results{max-height:70vh;overflow-y:auto;margin-top:20px;display:none;background:rgba(30,30,40,0.9);border-radius:10px;padding:10px}.search-results.active{display:block}.search-item{display:flex;gap:15px;padding:10px;border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.3s}.search-item:hover{background:rgba(255,255,255,0.05)}.search-item-img{width:60px;height:90px;border-radius:5px;object-fit:cover}.search-item-info{flex:1}.search-item-title{font-weight:600;margin-bottom:5px}.search-item-meta{font-size:12px;color:#aaa}.hero{height:70vh;background-size:cover;background-position:center;display:flex;align-items:center;position:relative;margin-bottom:50px}.hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(0,0,0,0.9)0%,rgba(0,0,0,0.5)50%,transparent 100%)}.hero-content{max-width:600px;position:relative;z-index:2;padding:0 40px}.hero-title{font-size:48px;font-weight:700;margin-bottom:15px;text-shadow:2px 2px 10px rgba(0,0,0,0.5)}.hero-desc{font-size:16px;line-height:1.6;margin-bottom:25px;color:#ddd}.hero-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.hero-meta-item{display:flex;align-items:center;gap:5px;font-size:14px}.hero-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 5px 15px rgba(255,77,77,0.3);display:inline-flex;align-items:center;gap:8px}.hero-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,77,77,0.4)}.hero-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;box-shadow:none}.hero-btn.outline:hover{background:rgba(255,255,255,0.1)}.content-section{margin-bottom:50px}.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-title{font-size:24px;font-weight:600;position:relative;color:#f9cb28}.section-title:after{content:'';position:absolute;bottom:-5px;left:0;width:50px;height:3px;background:linear-gradient(90deg,#ff4d4d,#f9cb28)}.section-link{color:#aaa;text-decoration:none;font-size:14px;transition:all 0.3s;display:flex;align-items:center;gap:5px}.section-link:hover{color:#f9cb28}.movie-row-container{overflow:hidden;position:relative}.movie-row{display:flex;gap:15px;padding:10px 0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}.movie-row::-webkit-scrollbar{display:none}.movie-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.5s cubic-bezier(0.175,0.885,0.32,1.275);transform-style:preserve-3d;flex:0 0 auto;width:200px;scroll-snap-align:start}.movie-card:hover{transform:translateY(-10px)scale(1.03);box-shadow:0 20px 30px rgba(0,0,0,0.3)}.movie-card:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,0.8)0%,transparent 50%);z-index:1;opacity:0;transition:all 0.3s}.movie-card:hover:before{opacity:1}.movie-poster{width:100%;height:300px;object-fit:cover;transition:all 0.5s}.movie-card:hover .movie-poster{transform:scale(1.1)}.movie-info{position:absolute;bottom:0;left:0;width:100%;padding:20px;z-index:2;transform:translateY(20px);opacity:0;transition:all 0.3s}.movie-card:hover .movie-info{transform:translateY(0);opacity:1}.movie-title{font-size:16px;font-weight:600;margin-bottom:5px}.movie-meta{display:flex;justify-content:space-between;font-size:12px;color:#aaa}.movie-rating{display:flex;align-items:center;gap:5px;color:#f9cb28}.video-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:2000;opacity:0;visibility:hidden;transition:all 0.3s}.video-overlay.active{opacity:1;visibility:visible}.video-container{width:90%;max-width:1200px;position:relative}.close-btn{position:absolute;top:-50px;right:0;background:none;border:none;color:#fff;font-size:30px;cursor:pointer;transition:all 0.3s}.close-btn:hover{color:#ff4d4d}.video-player{width:100%;height:0;padding-bottom:56.25%;position:relative;background:#000;border-radius:10px;overflow:hidden}.video-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}.season-selector{position:absolute;bottom:60px;left:20px;z-index:3}.season-btn{background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:5px 15px;border-radius:20px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:5px}.season-btn:hover{background:rgba(255,255,255,0.2)}.season-dropdown{position:absolute;bottom:100%;left:0;background:rgba(0,0,0,0.9);border-radius:10px;overflow:hidden;min-width:150px;display:none}.season-dropdown.active{display:block}.season-item{padding:10px 15px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:8px}.season-item:hover{background:rgba(255,255,255,0.1)}.episode-list{display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px;margin-top:15px;padding:15px;background:rgba(0,0,0,0.7);border-radius:10px}.episode-list.active{display:grid}.episode-card{background:rgba(30,30,40,0.9);padding:10px;border-radius:5px;text-align:center;cursor:pointer;transition:all 0.3s}.episode-card:hover{background:rgba(255,77,77,0.2);transform:translateY(-3px)}.continue-watching{margin-top:30px}.continue-row{display:flex;gap:15px;padding:10px 0;overflow-x:auto;scroll-snap-type:x mandatory}.continue-card{position:relative;border-radius:10px;overflow:hidden;flex:0 0 auto;width:180px;scroll-snap-align:start}.continue-progress{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,#ff4d4d,#f9cb28)}.continue-empty{text-align:center;padding:40px 0;color:#aaa}.filters{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.filter-btn{background:rgba(255,255,255,0.1);border:none;color:#fff;padding:8px 15px;border-radius:20px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:5px}.filter-btn.active{background:linear-gradient(45deg,#ff4d4d,#f9cb28);color:#000}.filter-btn:hover{background:rgba(255,255,255,0.2)}.loading{display:flex;justify-content:center;align-items:center;height:200px}.spinner{width:40px;height:40px;border:4px solid rgba(255,255,255,0.1);border-radius:50%;border-top-color:#ff4d4d;animation:spin 1s ease infinite}@keyframes spin{100%{transform:rotate(360deg)}}@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.fade-in{animation:fadeIn 0.5s ease forwards}.detail-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1500;opacity:0;visibility:hidden;transition:all 0.3s;display:flex;justify-content:center;align-items:center}.detail-overlay.active{opacity:1;visibility:visible}.detail-container{width:90%;max-width:900px;background:#14141a;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;max-height:90vh}.detail-header{position:relative}.detail-backdrop{width:100%;height:300px;object-fit:cover}.detail-close{position:absolute;top:20px;right:20px;background:rgba(0,0,0,0.7);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s}.detail-close:hover{background:#ff4d4d}.detail-content{display:flex;padding:30px;gap:30px;overflow-y:auto}.detail-poster{width:250px;height:375px;border-radius:10px;object-fit:cover;flex-shrink:0}.detail-info{flex:1}.detail-title{font-size:32px;margin-bottom:15px;color:#f9cb28}.detail-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.detail-meta-item{display:flex;align-items:center;gap:5px;font-size:14px;color:#ddd}.detail-overview{margin-bottom:25px;line-height:1.6;color:#ccc}.detail-buttons{display:flex;gap:15px;margin-top:30px;flex-wrap:wrap}.detail-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.detail-btn:hover{transform:translateY(-3px)}.detail-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff}.detail-btn.outline:hover{background:rgba(255,255,255,0.1)}.next-episode-btn{background:linear-gradient(45deg,#28a745,#7cfc00);border:none;color:#000;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.next-episode-btn:hover{transform:translateY(-3px)}.scroll-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:none;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10}.scroll-btn:hover{background:rgba(255,255,255,0.2)}.scroll-btn.left{left:10px}.scroll-btn.right{right:10px}.my-list-section{margin-top:30px}.my-list-empty{text-align:center;padding:40px 0;color:#aaa}@media (max-width:768px){.hero{height:50vh}.hero-title{font-size:32px}.hero-desc{font-size:14px}.hero-content{padding:0 20px}.movie-card{width:150px}.nav-links{gap:15px}.detail-content{flex-direction:column}.detail-poster{width:100%;height:auto}.detail-buttons{flex-direction:column}.scroll-btn{display:none}}@media (max-width:480px){.header-content{flex-direction:column;gap:15px}.nav-links{gap:10px;font-size:14px}.user-actions{position:absolute;top:20px;right:20px}.hero{height:60vh;margin-bottom:30px}.section-title{font-size:20px}.detail-container{max-height:80vh}.detail-content{padding:15px}.detail-title{font-size:24px}.detail-meta-item{font-size:12px}.detail-btn{padding:10px 20px}}.no-content{text-align:center;padding:50px 0;color:#aaa}.random-hero{background-size:cover;background-position:center;position:relative}.random-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,rgba(0,0,0,0.9)0%,rgba(0,0,0,0.5)50%,transparent 100%)}.random-content{position:relative;z-index:2;padding:40px}.random-title{font-size:42px;margin-bottom:15px;color:#f9cb28}.random-desc{max-width:600px;margin-bottom:20px;line-height:1.6;color:#ddd}.random-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}.random-meta-item{display:flex;align-items:center;gap:5px;font-size:14px;color:#ddd}.random-btn-group{display:flex;gap:15px;flex-wrap:wrap}.random-btn{background:linear-gradient(45deg,#ff4d4d,#f9cb28);border:none;color:#000;padding:12px 25px;border-radius:30px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}.random-btn:hover{transform:translateY(-3px)}.random-btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff}.random-btn.outline:hover{background:rgba(255,255,255,0.1)}</style></head><body><header><div class="container"><div class="header-content"><div class="logo">MovieStream</div><nav class="nav-links"><a href="#" class="nav-link active" data-type="all"><i class="fas fa-home"></i> Főoldal</a><a href="#" class="nav-link" data-type="movie"><i class="fas fa-film"></i> Filmek</a><a href="#" class="nav-link" data-type="tv"><i class="fas fa-tv"></i> Sorozatok</a><a href="#" class="nav-link" data-type="my-list"><i class="fas fa-bookmark"></i> Listám</a></nav><div class="user-actions"><button class="random-btn" id="randomBtn" title="Nem tudom mit nézzek"><i class="fas fa-random"></i></button><button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button></div></div></div></header><div class="search-container" id="searchContainer"><div class="container"><div class="search-box"><input type="text" class="search-input" id="searchInput" placeholder="Keresés filmek és sorozatok között..."><div class="search-results" id="searchResults"></div></div></div></div><section class="hero random-hero" id="randomHero"><div class="container"><div class="random-content"><h1 class="random-title" id="randomTitle">Betöltés...</h1><div class="random-meta" id="randomMeta"></div><p class="random-desc" id="randomDesc"></p><div class="random-btn-group"><button class="random-btn" id="playRandomBtn"><i class="fas fa-play"></i> Lejátszás</button><button class="random-btn outline" id="newRandomBtn"><i class="fas fa-sync-alt"></i> Új ajánlás</button></div></div></div></section><main class="container"><section class="continue-watching"><h2 class="section-title"><i class="fas fa-history"></i> Folytasd a nézést</h2><div class="continue-row" id="continueWatching"><div class="continue-empty"><i class="fas fa-film" style="font-size:40px;margin-bottom:15px;"></i><p>Még nem néztél meg semmit.</p></div></div></section><section class="content-section"><div class="section-header"><h2 class="section-title"><i class="fas fa-fire"></i> Népszerű filmek</h2><a href="#" class="section-link">Összes megtekintése <i class="fas fa-chevron-right"></i></a></div><div class="filters"><button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> Összes</button><button class="filter-btn" data-filter="action"><i class="fas fa-explosion"></i> Akció</button><button class="filter-btn" data-filter="comedy"><i class="fas fa-laugh-squint"></i> Vígjáték</button><button class="filter-btn" data-filter="drama"><i class="fas fa-theater-masks"></i> Dráma</button><button class="filter-btn" data-filter="sci-fi"><i class="fas fa-robot"></i> Sci-Fi</button></div><div class="movie-row-container"><div class="movie-row" id="latestMovies"></div></div></section><section class="content-section"><div class="section-header"><h2 class="section-title"><i class="fas fa-star"></i> Népszerű sorozatok</h2><a href="#" class="section-link">Összes megtekintése <i class="fas fa-chevron-right"></i></a></div><div class="movie-row-container"><div class="movie-row" id="popularSeries"></div></div></section><section class="content-section my-list-section" id="myListSection" style="display:none"><div class="section-header"><h2 class="section-title"><i class="fas fa-bookmark"></i> Saját listám</h2></div><div class="movie-row-container"><div class="movie-row" id="myListContent"></div><div class="my-list-empty" id="myListEmpty"><i class="fas fa-bookmark" style="font-size:40px;margin-bottom:15px;"></i><p>Még nincs a listádban tartalom.</p></div></div></section></main><div class="detail-overlay" id="detailOverlay"><div class="detail-container"><div class="detail-header"><img src="" alt="" class="detail-backdrop" id="detailBackdrop"><button class="detail-close" id="detailClose"><i class="fas fa-times"></i></button></div><div class="detail-content"><img src="" alt="" class="detail-poster" id="detailPoster"><div class="detail-info"><h1 class="detail-title" id="detailTitle"></h1><div class="detail-meta" id="detailMeta"></div><p class="detail-overview" id="detailOverview"></p><div class="detail-buttons" id="detailButtons"><button class="detail-btn" id="detailPlayBtn"><i class="fas fa-play"></i> Lejátszás</button><button class="detail-btn outline" id="detailAddBtn"><i class="fas fa-plus"></i> Listához adás</button><button class="next-episode-btn" id="nextEpisodeBtn" style="display:none"><i class="fas fa-forward"></i> Következő rész</button></div><div id="seasonSelectorContainer"></div><div id="episodeListContainer"></div></div></div></div></div><div class="video-overlay" id="videoOverlay"><div class="video-container"><button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button><div class="video-player" id="videoPlayer"></div></div></div><script>
-// Adatbázis - szépen formázva a módosíthatóság érdekében
-const mockDatabase = {
-    movies: [
-        {
-            id: 11,
-            title: "A Meg",
-            year: 2018,
-            genre: "sci-fi",
-            rating: 6.4,
-            duration: 105,
-            poster: "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
-            backdrop: "",
-            desc: "Egy óriási, ősi cápával kell szembenéznie egy bátor oceanográfusnak, hogy megmentse a legénységét egy elsüllyedt tengeralattjáróról.",
-            video: "https://www.youtube.com/embed/MY1H5tZuB4o"
-        },
-        {
-            id: 2,
-            title: "Viharsziget",
-            year: 2020,
-            genre: "action",
-            rating: 7.1,
-            duration: 107,
-            poster: "https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
-            desc: "Egy csapat elit zsoldoskatona egy titkos szigeten találja magát, ahol látszólag minden élőlény genetikai kísérletek tárgya.",
-            video: "https://www.youtube.com/embed/EH4hO7U8io4"
-        },
-        {
-            id: 3,
-            title: "A Hangya és a Darázs",
-            year: 2023,
-            genre: "comedy",
-            rating: 7.4,
-            duration: 118,
-            poster: "https://image.tmdb.org/t/p/w500/9HFFwZOTBBhf4V6NaV1IPIxoeOQ.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/2rmK7mnchw9XrkeX0D9a7i4o6qC.jpg",
-            desc: "Scott Lang és Hope van Dyne, a Hangya és a Darázs együtt kénytelenek felfedezni a kvantumvilágot, miközben családjukkal is foglalkozniuk kell.",
-            video: "https://www.youtube.com/embed/8_rTIAOohas"
-        },
-        {
-            id: 4,
-            title: "Dűne",
-            year: 2021,
-            genre: "sci-fi",
-            rating: 8.0,
-            duration: 155,
-            poster: "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/jYEW5xZkZk2WTrdbMGAPFuBqbDc.jpg",
-            desc: "Paul Atreides, egy tehetséges fiatal férfi, aki nagy sorsra született, veszélyes küldetésre indul egy veszélyes bolygó megmentésére.",
-            video: "https://www.youtube.com/embed/n9xhJrPXop4"
-        },
-        {
-            id: 5,
-            title: "John Wick 4",
-            year: 2023,
-            genre: "action",
-            rating: 7.8,
-            duration: 169,
-            poster: "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/h8gHn0OzBoaefsYseUByqsmEDMY.jpg",
-            desc: "John Wick újra menekülésben van, miközben a világ leghalálosabb bérgyilkosai üldözőbe veszik.",
-            video: "https://www.youtube.com/embed/qEVUtrk8_B4"
-        },
-        {
-            id: 6,
-            title: "Barbie",
-            year: 2023,
-            genre: "comedy",
-            rating: 7.3,
-            duration: 114,
-            poster: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
-            desc: "Barbie a tökéletes Barbie-világban él, amíg egy nap rá nem jön, hogy nem felel meg a szépségideáloknak.",
-            video: "https://www.youtube.com/embed/pBk4NYhWNMM"
-        },
-        {
-            id: 7,
-            title: "Oppenheimer",
-            year: 2023,
-            genre: "drama",
-            rating: 8.5,
-            duration: 180,
-            poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
-            desc: "J. Robert Oppenheimer története, az atombomba atyjának élete és a Manhattan terv.",
-            video: "https://www.youtube.com/embed/uYPbbksJxIg"
-        },
-        {
-            id: 8,
-            title: "A kis hableány",
-            year: 2023,
-            genre: "drama",
-            rating: 7.2,
-            duration: 135,
-            poster: "https://image.tmdb.org/t/p/w500/ym1dxyOk4jFcSl4Q2zmRrA5BEEN.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/znUYFf0Sez5lUmxJ3msGfIAF9Te.jpg",
-            desc: "Ariel, a kíváncsi kis hableány, aki szeretne emberré válni, hogy szerelmét kövesse a szárazföldön.",
-            video: "https://www.youtube.com/embed/kpGo2_d3oYE"
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Telefon</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-light: #8183f4;
+        --danger: #ef4444;
+        --danger-light: #f87171;
+        --success: #10b981;
+        --success-light: #34d399;
+        --warning: #f59e0b;
+        --warning-light: #fbbf24;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gray: #94a3b8;
+        --spotify: #1db954;
+        --shopping: #4facfe;
+        --recipes: #f5576c;
+        --streaming: #8b5cf6;
+        --glass: rgba(255, 255, 255, 0.2);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --current-wallpaper: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><linearGradient id="gradient" gradientTransform="rotate(160)"><stop offset="0%" stop-color="%23f5f7fa"/><stop offset="100%" stop-color="%23c3cfe2"/></linearGradient><rect width="100%" height="100%" fill="url(%23gradient)"/></svg>');
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        min-height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--light);
+        overflow: hidden;
+        touch-action: manipulation;
+        padding: 20px;
+      }
+
+      /* Telefon keret */
+      .phone {
+        width: 100%;
+        max-width: 375px;
+        height: 80vh;
+        min-height: 600px;
+        background: #000;
+        border-radius: 50px;
+        position: relative;
+        box-shadow: 0 0 0 12px #1a1a1a, 0 0 0 14px #3d3d3d,
+          0 30px 80px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        border: 1px solid #333;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      /* Kijelző */
+      .screen {
+        width: 100%;
+        height: 100%;
+        background: var(--current-wallpaper);
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: background 0.5s ease;
+      }
+
+      /* Lock screen */
+      .lock-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #000000, #1a1a1a);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 60px 20px 40px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .lock-screen.unlocked {
+        transform: translateY(-100%);
+      }
+
+      .lock-time {
+        font-size: 72px;
+        font-weight: 200;
+        color: white;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      .lock-date {
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .unlock-instruction {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 30px;
+        text-align: center;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.7;
         }
-    ],
-    series: [
-        {
-            id: 101,
-            title: "Trónok harca",
-            year: 2011,
-            genre: "drama",
-            rating: 8.9,
-            seasons: 8,
-            poster: "https://image.tmdb.org/t/p/w500/7WUHnWGx5OO145IRxPDUkQSh4C7.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/1XDDXPXGiI8id7MrU2K1WwB6m1Q.jpg",
-            desc: "Nemes családok harca a Westeros trónjáért, miközben egy ősi ellenség visszatér a falak mögül.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1011,
-                            title: "Tél közeleg",
-                            desc: "A Stark család egy farkaskölyköt talál, Ned Stark a Király Segítője lesz.",
-                            duration: 62,
-                            video: "https://www.youtube.com/embed/iGp_N3Ir7Do"
-                        },
-                        {
-                            id: 1012,
-                            title: "A király útja",
-                            desc: "Robert király és kísérete Északra indul, Jon Havas a Fal felé veszi az irányt.",
-                            duration: 56,
-                            video: "https://www.youtube.com/embed/6VJ9vslsMkY"
-                        }
-                    ]
-                },
-                {
-                    season: 2,
-                    episodes: [
-                        {
-                            id: 1021,
-                            title: "Északon",
-                            desc: "Tyrion megérkezik Királyvárba, Jon Havas és a Fal őrei túlélési küzdelmet vívnak.",
-                            duration: 53,
-                            video: "https://www.youtube.com/embed/tU9k6kQkTCQ"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 102,
-            title: "Stranger Things",
-            year: 2016,
-            genre: "sci-fi",
-            rating: 8.7,
-            seasons: 4,
-            poster: "https://image.tmdb.org/t/p/w500/xda7MLR3zPqpx3ttVYoWqG8hZJm.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
-            desc: "Egy kisvárosban eltűnik egy fiú, és titokzatos erők kezdenek játszadozni a lakosokkal.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1021,
-                            title: "Az első fejezet",
-                            desc: "Will eltűnése után anyja és barátai keresni kezdik, miközben furcsa dolgok történnek.",
-                            duration: 48,
-                            video: "https://www.youtube.com/embed/b9EkMc79ZSU"
-                        },
-                        {
-                            id: 1022,
-                            title: "A második fejezet",
-                            desc: "Lucas, Mike és Dustin találkoznak Elevennel, Joyce furcsa jeleket kap Willtől.",
-                            duration: 55,
-                            video: "https://www.youtube.com/embed/9rJY4h64H1w"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 103,
-            title: "The Witcher",
-            year: 2019,
-            genre: "action",
-            rating: 8.2,
-            seasons: 3,
-            poster: "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/7q448EVOnuE3gVAx24krzO7SNXM.jpg",
-            desc: "Geralt of Rivia, egy mutáns szörnyvadász küzdelmei egy gonosz erőkkel teli világban.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1031,
-                            title: "A vég kezdete",
-                            desc: "Geralt váratlanul összefonódik egy varázslónővel és egy veszélyes hercegnővel.",
-                            duration: 60,
-                            video: "https://www.youtube.com/embed/ndl1W4ltcmg"
-                        },
-                        {
-                            id: 1032,
-                            title: "Négy nyíl",
-                            desc: "Geralt kénytelen megvédeni Cirit, miközben Yennefer átváltozása kezdődik.",
-                            duration: 61,
-                            video: "https://www.youtube.com/embed/1O3iRDiJVP0"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 104,
-            title: "Breaking Bad",
-            year: 2008,
-            genre: "drama",
-            rating: 9.5,
-            seasons: 5,
-            poster: "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
-            desc: "Egy középkorú kémiatanár, aki rákos beteg, drogkirály akar lenni, hogy családjának biztosítson.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1041,
-                            title: "Pilot",
-                            desc: "Walter White, egy középiskolai kémiatanár megtudja, hogy tüdőrákja van.",
-                            duration: 58,
-                            video: "https://www.youtube.com/embed/HhesaQXLuRY"
-                        },
-                        {
-                            id: 1042,
-                            title: "Az elefántcsonttorony",
-                            desc: "Walter és Jesse első drogüzletük után menekülni kényszerülnek.",
-                            duration: 48,
-                            video: "https://www.youtube.com/embed/_L6G8O5ifW8"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 105,
-            title: "The Mandalorian",
-            year: 2019,
-            genre: "sci-fi",
-            rating: 8.7,
-            seasons: 3,
-            poster: "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/d4Ja9AMFoWEtTPKFrzQac0ReYb.jpg",
-            desc: "Egy magányos mandalóriai zsoldos kalandjai a Star Wars univerzum külső peremén.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1051,
-                            title: "1. fejezet",
-                            desc: "A Mandalóriai egy különös megbízást kap, ami mindennel megváltoztatja az életét.",
-                            duration: 39,
-                            video: "https://www.youtube.com/embed/aOC8E8z_ifw"
-                        },
-                        {
-                            id: 1052,
-                            title: "2. fejezet",
-                            desc: "A Mandalóriai megpróbálja visszaszerezni a rablóktól a Baby Yodát.",
-                            duration: 32,
-                            video: "https://www.youtube.com/embed/FAHzzQ8_9ig"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 106,
-            title: "Peaky Blinders",
-            year: 2013,
-            genre: "drama",
-            rating: 8.8,
-            seasons: 6,
-            poster: "https://image.tmdb.org/t/p/w500/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
-            backdrop: "https://image.tmdb.org/t/p/original/wiE9doxiLwq3WCGamDIOb2PqBqc.jpg",
-            desc: "A Shelby család birminghami bűnöző csoportjának története az 1920-as években.",
-            seasons: [
-                {
-                    season: 1,
-                    episodes: [
-                        {
-                            id: 1061,
-                            title: "1. rész",
-                            desc: "Thomas Shelby és családja bűnszervezetét fenyegeti egy fegyverraktár ellopása.",
-                            duration: 58,
-                            video: "https://www.youtube.com/embed/oVzVdvGIC7U"
-                        },
-                        {
-                            id: 1062,
-                            title: "2. rész",
-                            desc: "Thomas terveket sző a család jövőjéért, miközben a rendőrség nyomoz.",
-                            duration: 57,
-                            video: "https://www.youtube.com/embed/2nsT9uQPIrk"
-                        }
-                    ]
-                }
-            ]
+        50% {
+          opacity: 1;
         }
-    ]
-};
+      }
 
-// Globális változók
-let continueWatching = JSON.parse(localStorage.getItem('continueWatching')) || [];
-let myList = JSON.parse(localStorage.getItem('myList')) || [];
-let currentRandomItem = null;
-let currentContentType = 'all';
-let currentDetailItem = null;
-let currentEpisode = null;
+      .fingerprint-sensor {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 60px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
 
-// Véletlenszerű tartalom betöltése
-function loadRandomContent() {
-    const allContent = [...mockDatabase.movies, ...mockDatabase.series];
-    const randomItem = allContent[Math.floor(Math.random() * allContent.length)];
-    currentRandomItem = randomItem;
-    document.getElementById('randomHero').style.backgroundImage = `linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%), url(${randomItem.backdrop || randomItem.poster})`;
-    renderRandomContent(randomItem);
-}
+      .fingerprint-sensor:active {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(0.95);
+      }
 
-// Véletlenszerű tartalom megjelenítése
-function renderRandomContent(item) {
-    document.getElementById('randomTitle').textContent = item.title;
-    document.getElementById('randomDesc').textContent = item.desc || 'Nincs elérhető leírás.';
-    const metaContainer = document.getElementById('randomMeta');
-    metaContainer.innerHTML = '';
-    const yearEl = document.createElement('div');
-    yearEl.className = 'random-meta-item';
-    yearEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.year}`;
-    metaContainer.appendChild(yearEl);
-    const ratingEl = document.createElement('div');
-    ratingEl.className = 'random-meta-item';
-    ratingEl.innerHTML = `<i class="fas fa-star"></i> ${item.rating}/10`;
-    metaContainer.appendChild(ratingEl);
-    const genreEl = document.createElement('div');
-    genreEl.className = 'random-meta-item';
-    genreEl.innerHTML = `<i class="fas fa-tag"></i> ${getHungarianGenre(item.genre)}`;
-    metaContainer.appendChild(genreEl);
-    const typeEl = document.createElement('div');
-    typeEl.className = 'random-meta-item';
-    const isMovie = item.duration;
-    typeEl.innerHTML = isMovie ? '<i class="fas fa-film"></i> Film' : '<i class="fas fa-tv"></i> Sorozat';
-    metaContainer.appendChild(typeEl);
-}
+      .fingerprint-icon {
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.7);
+      }
 
-// Filmek megjelenítése
-function renderMovies() {
-    const moviesRow = document.getElementById('latestMovies');
-    moviesRow.innerHTML = mockDatabase.movies.map(movie => `
-        <div class="movie-card" data-id="${movie.id}" data-type="movie">
-            <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
-            <div class="movie-info">
-                <h3 class="movie-title">${movie.title}</h3>
-                <div class="movie-meta">
-                    <span>${movie.year}</span>
-                    <span>${getHungarianGenre(movie.genre)}</span>
-                </div>
-                <div class="movie-rating">⭐ ${movie.rating}</div>
-            </div>
-        </div>
-    `).join('');
-    document.querySelectorAll('#latestMovies .movie-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const movieId = parseInt(card.dataset.id);
-            const movie = mockDatabase.movies.find(m => m.id === movieId);
-            if (movie) showContentDetails(movie, 'movie');
-        });
-    });
-}
+      .fingerprint-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        animation: ripple 1.5s infinite;
+        pointer-events: none;
+      }
 
-// Sorozatok megjelenítése
-function renderSeries() {
-    const seriesRow = document.getElementById('popularSeries');
-    seriesRow.innerHTML = mockDatabase.series.map(series => `
-        <div class="movie-card" data-id="${series.id}" data-type="tv">
-            <img src="${series.poster}" alt="${series.title}" class="movie-poster">
-            <div class="movie-info">
-                <h3 class="movie-title">${series.title}</h3>
-                <div class="movie-meta">
-                    <span>${series.year}</span>
-                    <span>${getHungarianGenre(series.genre)}</span>
-                </div>
-                <div class="movie-rating">⭐ ${series.rating}</div>
-            </div>
-        </div>
-    `).join('');
-    document.querySelectorAll('#popularSeries .movie-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const seriesId = parseInt(card.dataset.id);
-            const series = mockDatabase.series.find(s => s.id === seriesId);
-            if (series) showContentDetails(series, 'tv');
-        });
-    });
-}
-
-// Saját lista megjelenítése
-function renderMyList() {
-    const myListContent = document.getElementById('myListContent');
-    const myListEmpty = document.getElementById('myListEmpty');
-    
-    if (myList.length === 0) {
-        myListContent.style.display = 'none';
-        myListEmpty.style.display = 'block';
-        return;
-    }
-    
-    myListContent.style.display = 'flex';
-    myListEmpty.style.display = 'none';
-    
-    myListContent.innerHTML = myList.map(item => {
-        const content = item.type === 'movie' 
-            ? mockDatabase.movies.find(m => m.id === item.id)
-            : mockDatabase.series.find(s => s.id === item.id);
-        if (!content) return '';
-        return `
-            <div class="movie-card" data-id="${content.id}" data-type="${item.type}">
-                <img src="${content.poster}" alt="${content.title}" class="movie-poster">
-                <div class="movie-info">
-                    <h3 class="movie-title">${content.title}</h3>
-                    <div class="movie-meta">
-                        <span>${content.year}</span>
-                        <span>${getHungarianGenre(content.genre)}</span>
-                    </div>
-                    <div class="movie-rating">⭐ ${content.rating}</div>
-                </div>
-            </div>
-        `;
-    }).join('');
-    
-    document.querySelectorAll('#myListContent .movie-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const contentId = parseInt(card.dataset.id);
-            const contentType = card.dataset.type;
-            const content = contentType === 'movie' 
-                ? mockDatabase.movies.find(m => m.id === contentId)
-                : mockDatabase.series.find(s => s.id === contentId);
-            if (content) showContentDetails(content, contentType);
-        });
-    });
-}
-
-// Tartalom részleteinek megjelenítése
-function showContentDetails(item, type) {
-    currentDetailItem = { ...item, type };
-    document.getElementById('detailTitle').textContent = item.title;
-    document.getElementById('detailOverview').textContent = item.desc || 'Nincs elérhető leírás.';
-    document.getElementById('detailPoster').src = item.poster;
-    document.getElementById('detailBackdrop').src = item.backdrop || item.poster;
-    
-    const metaContainer = document.getElementById('detailMeta');
-    metaContainer.innerHTML = '';
-    
-    const yearEl = document.createElement('div');
-    yearEl.className = 'detail-meta-item';
-    yearEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.year}`;
-    metaContainer.appendChild(yearEl);
-    
-    const ratingEl = document.createElement('div');
-    ratingEl.className = 'detail-meta-item';
-    ratingEl.innerHTML = `<i class="fas fa-star"></i> ${item.rating}/10`;
-    metaContainer.appendChild(ratingEl);
-    
-    const genreEl = document.createElement('div');
-    genreEl.className = 'detail-meta-item';
-    genreEl.innerHTML = `<i class="fas fa-tag"></i> ${getHungarianGenre(item.genre)}`;
-    metaContainer.appendChild(genreEl);
-    
-    if (type === 'movie') {
-        const durationEl = document.createElement('div');
-        durationEl.className = 'detail-meta-item';
-        durationEl.innerHTML = `<i class="fas fa-clock"></i> ${Math.floor(item.duration/60)}ó ${item.duration%60}p`;
-        metaContainer.appendChild(durationEl);
-    } else {
-        const seasonsEl = document.createElement('div');
-        seasonsEl.className = 'detail-meta-item';
-        seasonsEl.innerHTML = `<i class="fas fa-bookmark"></i> ${item.seasons.length} évad`;
-        metaContainer.appendChild(seasonsEl);
-    }
-    
-    // Listához adás gomb állapota
-    const isInMyList = myList.some(x => x.id === item.id && x.type === type);
-    const addBtn = document.getElementById('detailAddBtn');
-    addBtn.innerHTML = isInMyList ? '<i class="fas fa-check"></i> Listában van' : '<i class="fas fa-plus"></i> Listához adás';
-    addBtn.classList.toggle('outline', !isInMyList);
-    
-    // Sorozat esetén évadok és részek megjelenítése
-    const seasonSelectorContainer = document.getElementById('seasonSelectorContainer');
-    const episodeListContainer = document.getElementById('episodeListContainer');
-    const nextEpisodeBtn = document.getElementById('nextEpisodeBtn');
-    
-    if (type === 'tv') {
-        seasonSelectorContainer.innerHTML = `
-            <div class="season-selector">
-                <button class="season-btn" id="seasonBtn"><i class="fas fa-bookmark"></i> Válassz évadot</button>
-                <div class="season-dropdown" id="seasonDropdown">
-                    ${item.seasons.map(season => `
-                        <div class="season-item" data-season="${season.season}">
-                            <i class="fas fa-book"></i> ${season.season}. évad
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        document.getElementById('seasonBtn').addEventListener('click', function() {
-            document.getElementById('seasonDropdown').classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.season-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const seasonNum = parseInt(this.dataset.season);
-                const season = currentDetailItem.seasons.find(s => s.season === seasonNum);
-                if (season) renderEpisodes(season);
-                document.getElementById('seasonDropdown').classList.remove('active');
-                document.getElementById('seasonBtn').innerHTML = `<i class="fas fa-book"></i> ${seasonNum}. évad`;
-            });
-        });
-        
-        // Alapértelmezettként az első évad
-        if (item.seasons.length > 0) {
-            renderEpisodes(item.seasons[0]);
-            document.getElementById('seasonBtn').innerHTML = `<i class="fas fa-book"></i> 1. évad`;
+      @keyframes ripple {
+        0% {
+          width: 0;
+          height: 0;
+          border-color: rgba(255, 255, 255, 0.3);
+          opacity: 1;
         }
-        
-        nextEpisodeBtn.style.display = 'none';
-    } else {
-        seasonSelectorContainer.innerHTML = '';
-        episodeListContainer.innerHTML = '';
-        nextEpisodeBtn.style.display = 'none';
-    }
-    
-    document.getElementById('detailOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+        100% {
+          width: 150%;
+          height: 150%;
+          border-color: rgba(255, 255, 255, 0);
+          opacity: 0;
+        }
+      }
 
-// Epizódok megjelenítése
-function renderEpisodes(season) {
-    const episodeListContainer = document.getElementById('episodeListContainer');
-    episodeListContainer.innerHTML = `
-        <div class="episode-list active">
-            ${season.episodes.map(episode => `
-                <div class="episode-card" data-episode="${episode.id}">
-                    <h4>${episode.title}</h4>
-                    <p>${episode.desc || 'Nincs leírás'}</p>
-                    <div class="movie-meta">
-                        <span>${episode.duration} perc</span>
-                    </div>
-                </div>
-            `).join('')}
+      /* Dynamic Island */
+      .dynamic-island {
+        width: 120px;
+        height: 35px;
+        background: #000;
+        border-radius: 20px;
+        margin: 15px auto 0;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateZ(10px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .island-camera {
+        width: 12px;
+        height: 12px;
+        background: #0d0d0d;
+        border: 2px solid #1a1a1a;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .island-sensor {
+        width: 8px;
+        height: 8px;
+        background: #0d0d0d;
+        border: 2px solid #1a1a1a;
+        border-radius: 50%;
+      }
+
+      /* Status bar */
+      .status-bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 20px 5px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        position: relative;
+        z-index: 5;
+      }
+
+      .time {
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .status-icons {
+        display: flex;
+        gap: 5px;
+      }
+
+      /* Wallpaper */
+      .wallpaper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 100%
+        );
+        z-index: 1;
+      }
+
+      /* App grid */
+      .app-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 25px;
+        margin-top: 10px;
+        flex-grow: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        z-index: 2;
+      }
+
+      .app-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* App ikon */
+      .app-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-decoration: none;
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        animation: appIconEntrance 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 0;
+      }
+
+      @keyframes appIconEntrance {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.9) rotateX(45deg);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1) rotateX(0);
+        }
+      }
+
+      .app-icon:active .icon {
+        transform: scale(0.85) translateZ(0);
+        filter: brightness(0.9);
+      }
+
+      .app-icon:hover .icon {
+        transform: translateY(-8px) scale(1.05) translateZ(20px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        transform: translateZ(10px);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .icon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(255, 255, 255, 0) 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .app-icon:hover .icon::after {
+        opacity: 1;
+      }
+
+      .icon i {
+        font-size: 28px;
+        color: white;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .app-name {
+        font-size: 12px;
+        color: #000;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+      }
+
+      .app-icon:hover .app-name {
+        transform: translateY(2px);
+        color: #333;
+      }
+
+      /* App ikon színek */
+      .shopping-icon {
+        background: linear-gradient(135deg, var(--shopping) 0%, #00f2fe 100%);
+      }
+
+      .recipe-icon {
+        background: linear-gradient(135deg, #f093fb 0%, var(--recipes) 100%);
+      }
+
+      .spotify-icon {
+        background: linear-gradient(135deg, var(--spotify) 0%, #1ed760 100%);
+      }
+
+      .settings-icon {
+        background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+      }
+
+      .streaming-icon {
+        background: linear-gradient(135deg, var(--streaming) 0%, #a78bfa 100%);
+      }
+
+      /* Dock */
+      .dock {
+        padding: 15px 25px 25px;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid var(--glass-border);
+        display: flex;
+        justify-content: space-around;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin: 0 15px 15px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .dock-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        transform: translateZ(10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .dock-icon:hover {
+        transform: translateY(-5px) translateZ(15px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .dock-icon:active {
+        transform: translateY(0) scale(0.95);
+      }
+
+      .dock-icon i {
+        font-size: 24px;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      /* App content */
+      .app-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--light);
+        z-index: 20;
+        transform: translateY(100%);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        border-radius: 40px;
+        overflow: hidden;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.2);
+        touch-action: pan-y;
+      }
+
+      .app-content.active {
+        transform: translateY(0);
+        display: flex;
+      }
+
+      .app-content.swiping {
+        transition: none;
+      }
+
+      .app-content.closing {
+        transition: transform 0.5s cubic-bezier(0.45, 0, 0.55, 1);
+      }
+
+      .app-body {
+        flex-grow: 1;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .webview-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .webview {
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: hidden;
+        display: block;
+      }
+
+      /* Swipe indicator */
+      .swipe-indicator {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        z-index: 21;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .app-content.active .swipe-indicator {
+        opacity: 1;
+        animation: swipePulse 2s infinite;
+      }
+
+      @keyframes swipePulse {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: translateX(-50%) scale(1);
+        }
+        50% {
+          opacity: 0.2;
+          transform: translateX(-50%) scale(0.9);
+        }
+      }
+
+      /* Beállítások oldal */
+      .settings-page {
+        padding: 20px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .settings-section {
+        margin-bottom: 25px;
+      }
+
+      .settings-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .settings-title i {
+        margin-right: 10px;
+        color: var(--primary);
+      }
+
+      .url-input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        align-items: center;
+      }
+
+      .url-input {
+        flex-grow: 1;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: border 0.2s ease;
+      }
+
+      .url-input:focus {
+        border-color: var(--primary);
+        outline: none;
+      }
+
+      .save-btn {
+        padding: 12px 20px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .save-btn:hover {
+        background: var(--primary-light);
+      }
+
+      .save-btn:active {
+        transform: scale(0.95);
+      }
+
+      .wallpaper-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .wallpaper-option {
+        height: 80px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .wallpaper-option:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .wallpaper-option.active {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+      }
+
+      .wallpaper-preview {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Értesítés */
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        z-index: 100;
+        opacity: 0;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        max-width: 80%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* Home indicator */
+      .home-indicator {
+        width: 120px;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        margin: 0 auto 10px;
+        position: relative;
+        z-index: 4;
+      }
+
+      /* Animációk */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateZ(10px);
+        }
+        50% {
+          transform: translateY(-10px) translateZ(20px);
+        }
+      }
+
+      /* App ikonok animációjának késleltetése */
+      .app-icon:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .app-icon:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .app-icon:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .app-icon:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .app-icon:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+
+      /* Responsive adjustments */
+      @media (max-height: 700px) {
+        .phone {
+          height: 85vh;
+          min-height: 500px;
+          border-radius: 40px;
+        }
+
+        .app-grid {
+          gap: 15px;
+          padding: 15px;
+        }
+
+        .icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 15px;
+        }
+
+        .icon i {
+          font-size: 24px;
+        }
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        .screen {
+          background: #000;
+        }
+
+        .status-bar,
+        .app-name {
+          color: #fff;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .dock {
+          background: rgba(0, 0, 0, 0.4);
+          border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .wallpaper {
+          background: linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.2) 0%,
+            rgba(139, 92, 246, 0.2) 100%
+          );
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Telefon keret -->
+    <div class="phone">
+      <!-- Lock screen -->
+      <div class="lock-screen" id="lock-screen">
+        <div></div>
+        <!-- Empty div for spacing -->
+
+        <div class="lock-time-container">
+          <div class="lock-time" id="lock-time">14:25</div>
+          <div class="lock-date" id="lock-date">Hétfő, 2023. május 1.</div>
         </div>
-    `;
-    
-    document.querySelectorAll('.episode-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const episodeId = parseInt(card.dataset.episode);
-            const episode = season.episodes.find(e => e.id === episodeId);
-            if (episode) {
-                currentEpisode = { ...episode, season: season.season };
-                openVideoPlayer(
-                    episode.video, 
-                    currentDetailItem.id, 
-                    'tv', 
-                    `${currentDetailItem.title} - ${season.season}. évad ${season.episodes.findIndex(e => e.id === episode.id) + 1}. rész`, 
-                    currentDetailItem.poster
-                );
+
+        <div class="unlock-instruction">Érintse meg az ujjlenyomat-olvasót</div>
+
+        <div class="fingerprint-sensor" id="fingerprint-sensor">
+          <i class="fas fa-fingerprint fingerprint-icon"></i>
+          <div class="fingerprint-animation"></div>
+        </div>
+      </div>
+
+      <!-- Dynamic Island -->
+      <div class="dynamic-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <!-- Kijelző -->
+      <div class="screen">
+        <!-- Háttérkép -->
+        <div class="wallpaper"></div>
+
+        <!-- Status bar -->
+        <div class="status-bar">
+          <span class="time" id="current-time">14:25</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-three-quarters"></i>
+          </div>
+        </div>
+
+        <!-- App ikonok -->
+        <div class="app-grid" id="app-grid">
+          <!-- Bevásárlólista -->
+          <div class="app-icon" data-app="shopping">
+            <div class="icon shopping-icon">
+              <i class="fas fa-shopping-basket"></i>
+            </div>
+            <span class="app-name">Bevásárló</span>
+          </div>
+
+          <!-- Receptek -->
+          <div class="app-icon" data-app="recipes">
+            <div class="icon recipe-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <span class="app-name">Receptek</span>
+          </div>
+
+          <!-- Spotify -->
+          <div class="app-icon" data-app="spotify">
+            <div class="icon spotify-icon">
+              <i class="fab fa-spotify"></i>
+            </div>
+            <span class="app-name">Spotify</span>
+          </div>
+
+          <!-- Streaming -->
+          <div class="app-icon" data-app="streaming">
+            <div class="icon streaming-icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <span class="app-name">Streaming</span>
+          </div>
+
+          <!-- Beállítások -->
+          <div class="app-icon" data-app="settings">
+            <div class="icon settings-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <span class="app-name">Beállítások</span>
+          </div>
+        </div>
+
+        <!-- Dock -->
+        <div class="dock">
+          <div class="dock-icon shopping-icon">
+            <i class="fas fa-shopping-basket"></i>
+          </div>
+          <div class="dock-icon recipe-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="dock-icon spotify-icon">
+            <i class="fab fa-spotify"></i>
+          </div>
+          <div class="dock-icon settings-icon">
+            <i class="fas fa-cog"></i>
+          </div>
+        </div>
+
+        <!-- Home indicator -->
+        <div class="home-indicator"></div>
+      </div>
+
+      <!-- App tartalmak -->
+      <div class="app-content" id="shopping-content">
+        <div class="swipe-indicator"></div>
+        <div class="app-body">
+          <div class="webview-container">
+            <iframe
+              class="webview"
+              id="shopping-webview"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content" id="recipes-content">
+        <div class="swipe-indicator"></div>
+        <div class="app-body">
+          <div class="webview-container">
+            <iframe
+              class="webview"
+              id="recipes-webview"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content" id="spotify-content">
+        <div class="swipe-indicator"></div>
+        <div class="app-body">
+          <div class="webview-container">
+            <iframe
+              class="webview"
+              id="spotify-webview"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content" id="streaming-content">
+        <div class="swipe-indicator"></div>
+        <div class="app-body">
+          <div class="webview-container">
+            <iframe
+              class="webview"
+              id="streaming-webview"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content" id="settings-content">
+        <div class="swipe-indicator"></div>
+        <div class="app-body">
+          <div class="settings-page">
+            <div class="settings-section">
+              <div class="settings-title">
+                <i class="fas fa-link"></i>
+                <span>URL Beállítások</span>
+              </div>
+
+              <div class="url-input-group">
+                <input
+                  type="text"
+                  id="shopping-url-input"
+                  class="url-input"
+                  placeholder="https://example.com/shopping"
+                />
+                <button class="save-btn" onclick="saveUrl('shopping')">
+                  Mentés
+                </button>
+              </div>
+
+              <div class="url-input-group">
+                <input
+                  type="text"
+                  id="recipes-url-input"
+                  class="url-input"
+                  placeholder="https://example.com/recipes"
+                />
+                <button class="save-btn" onclick="saveUrl('recipes')">
+                  Mentés
+                </button>
+              </div>
+
+              <div class="url-input-group">
+                <input
+                  type="text"
+                  id="spotify-url-input"
+                  class="url-input"
+                  placeholder="https://open.spotify.com/"
+                />
+                <button class="save-btn" onclick="saveUrl('spotify')">
+                  Mentés
+                </button>
+              </div>
+
+              <div class="url-input-group">
+                <input
+                  type="text"
+                  id="streaming-url-input"
+                  class="url-input"
+                  placeholder="https://example.com/streaming"
+                />
+                <button class="save-btn" onclick="saveUrl('streaming')">
+                  Mentés
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-section">
+              <div class="settings-title">
+                <i class="fas fa-image"></i>
+                <span>Háttérkép</span>
+              </div>
+
+              <div class="wallpaper-options">
+                <div
+                  class="wallpaper-option active"
+                  data-wallpaper="gradient1"
+                  onclick="changeWallpaper('gradient1')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        160deg,
+                        #f5f7fa 0%,
+                        #c3cfe2 100%
+                      );
+                    "
+                  ></div>
+                </div>
+                <div
+                  class="wallpaper-option"
+                  data-wallpaper="gradient2"
+                  onclick="changeWallpaper('gradient2')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #6d28d9 0%,
+                        #8b5cf6 100%
+                      );
+                    "
+                  ></div>
+                </div>
+                <div
+                  class="wallpaper-option"
+                  data-wallpaper="gradient3"
+                  onclick="changeWallpaper('gradient3')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #3b82f6 0%,
+                        #1dd4af 100%
+                      );
+                    "
+                  ></div>
+                </div>
+                <div
+                  class="wallpaper-option"
+                  data-wallpaper="gradient4"
+                  onclick="changeWallpaper('gradient4')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #f97316 0%,
+                        #f59e0b 100%
+                      );
+                    "
+                  ></div>
+                </div>
+                <div
+                  class="wallpaper-option"
+                  data-wallpaper="gradient5"
+                  onclick="changeWallpaper('gradient5')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #ec4899 0%,
+                        #f472b6 100%
+                      );
+                    "
+                  ></div>
+                </div>
+                <div
+                  class="wallpaper-option"
+                  data-wallpaper="gradient6"
+                  onclick="changeWallpaper('gradient6')"
+                >
+                  <div
+                    class="wallpaper-preview"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #1db954 0%,
+                        #34d399 100%
+                      );
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Értesítés -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Lock screen elements
+        const lockScreen = document.getElementById("lock-screen");
+        const lockTime = document.getElementById("lock-time");
+        const lockDate = document.getElementById("lock-date");
+        const fingerprintSensor = document.getElementById("fingerprint-sensor");
+
+        // Valós idő frissítése
+        function updateTime() {
+          const now = new Date();
+          const hours = now.getHours().toString().padStart(2, "0");
+          const minutes = now.getMinutes().toString().padStart(2, "0");
+          const timeString = `${hours}:${minutes}`;
+
+          // Update time everywhere
+          document.getElementById("current-time").textContent = timeString;
+          lockTime.textContent = timeString;
+
+          // Update date
+          const days = [
+            "Vasárnap",
+            "Hétfő",
+            "Kedd",
+            "Szerda",
+            "Csütörtök",
+            "Péntek",
+            "Szombat",
+          ];
+          const months = [
+            "január",
+            "február",
+            "március",
+            "április",
+            "május",
+            "június",
+            "július",
+            "augusztus",
+            "szeptember",
+            "október",
+            "november",
+            "december",
+          ];
+          const dayName = days[now.getDay()];
+          const monthName = months[now.getMonth()];
+          const dateString = `${dayName}, ${now.getFullYear()}. ${monthName} ${now.getDate()}.`;
+          lockDate.textContent = dateString;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000); // Másodpercenként frissít
+
+        // Fingerprint authentication
+        let isAuthenticating = false;
+
+        fingerprintSensor.addEventListener("click", function () {
+          if (isAuthenticating) return;
+
+          isAuthenticating = true;
+          this.querySelector(".fingerprint-icon").style.color =
+            "var(--primary)";
+
+          // Simulate fingerprint scan
+          setTimeout(() => {
+            // 80% chance of success (for demo purposes)
+            const isSuccess = Math.random() < 0.8;
+
+            if (isSuccess) {
+              // Success - unlock phone
+              this.querySelector(".fingerprint-icon").style.color =
+                "var(--success)";
+              showToast("🔓 Sikeres azonosítás");
+
+              setTimeout(() => {
+                lockScreen.classList.add("unlocked");
+                isAuthenticating = false;
+              }, 500);
+            } else {
+              // Failure
+              this.querySelector(".fingerprint-icon").style.color =
+                "var(--danger)";
+              showToast("❌ Azonosítás sikertelen");
+
+              setTimeout(() => {
+                this.querySelector(".fingerprint-icon").style.color =
+                  "rgba(255, 255, 255, 0.7)";
+                isAuthenticating = false;
+              }, 1000);
             }
+          }, 1500);
         });
-    });
-}
 
-// Videó lejátszó megnyitása
-function openVideoPlayer(videoUrl, contentId, contentType, title, posterPath) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    videoPlayer.innerHTML = `<iframe src="${videoUrl}?autoplay=1" allowfullscreen></iframe>`;
-    document.getElementById('videoOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    updateContinueWatching(contentId, contentType, title, posterPath, videoUrl);
-}
-
-// "Folytasd a nézést" frissítése
-function updateContinueWatching(contentId, contentType, title, posterPath, videoUrl) {
-    const existingIndex = continueWatching.findIndex(x => x.id === contentId && x.type === contentType);
-    const newItem = {
-        id: contentId,
-        type: contentType,
-        title,
-        poster: posterPath,
-        videoUrl,
-        progress: 0,
-        duration: contentType === 'movie' 
-            ? mockDatabase.movies.find(m => m.id === contentId)?.duration || 120 
-            : 45
-    };
-    if (existingIndex >= 0) continueWatching[existingIndex] = newItem;
-    else {
-        continueWatching.unshift(newItem);
-        if (continueWatching.length > 6) continueWatching.pop();
-    }
-    localStorage.setItem('continueWatching', JSON.stringify(continueWatching));
-    renderContinueWatching();
-}
-
-// "Folytasd a nézést" megjelenítése
-function renderContinueWatching() {
-    const continueRow = document.getElementById('continueWatching');
-    if (continueWatching.length === 0) {
-        continueRow.innerHTML = `
-            <div class="continue-empty">
-                <i class="fas fa-film" style="font-size:40px;margin-bottom:15px;"></i>
-                <p>Még nem néztél meg semmit.</p>
-            </div>
-        `;
-        return;
-    }
-    continueRow.innerHTML = continueWatching.map(item => {
-        const progressPercent = item.progress ? (item.progress / item.duration) * 100 : 0;
-        return `
-            <div class="continue-card" data-id="${item.id}" data-type="${item.type}">
-                <img src="${item.poster}" alt="${item.title}" class="movie-poster">
-                <div class="continue-progress" style="width:${progressPercent}%"></div>
-            </div>
-        `;
-    }).join('');
-    document.querySelectorAll('#continueWatching .continue-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const itemId = parseInt(card.dataset.id);
-            const itemType = card.dataset.type;
-            const item = continueWatching.find(x => x.id === itemId && x.type === itemType);
-            if (item) openVideoPlayer(item.videoUrl, item.id, item.type, item.title, item.poster);
-        });
-    });
-}
-
-// Műfajok magyarul
-function getHungarianGenre(genre) {
-    const genreMap = {
-        'action': 'Akció', 'comedy': 'Vígjáték', 'drama': 'Dráma', 'sci-fi': 'Sci-Fi',
-        'horror': 'Horror', 'romance': 'Romantikus', 'thriller': 'Thriller',
-        'fantasy': 'Fantasy', 'animation': 'Animáció'
-    };
-    return genreMap[genre] || genre;
-}
-
-// Tartalom típus szerinti szűrés
-function filterContentByType(type) {
-    currentContentType = type;
-    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    document.querySelector(`.nav-link[data-type="${type}"]`).classList.add('active');
-    
-    document.getElementById('latestMovies').style.display = 'none';
-    document.getElementById('popularSeries').style.display = 'none';
-    document.getElementById('myListSection').style.display = 'none';
-    document.querySelector('.filters').style.display = 'none';
-    
-    if (type === 'all') {
-        document.getElementById('latestMovies').style.display = 'flex';
-        document.getElementById('popularSeries').style.display = 'flex';
-        document.querySelector('.filters').style.display = 'flex';
-    } else if (type === 'movie') {
-        document.getElementById('latestMovies').style.display = 'flex';
-        document.querySelector('.filters').style.display = 'flex';
-    } else if (type === 'tv') {
-        document.getElementById('popularSeries').style.display = 'flex';
-    } else if (type === 'my-list') {
-        document.getElementById('myListSection').style.display = 'block';
-        renderMyList();
-    }
-}
-
-// Műfaj szerinti szűrés
-function filterByGenre(genre) {
-    const movies = document.querySelectorAll('#latestMovies .movie-card');
-    const series = document.querySelectorAll('#popularSeries .movie-card');
-    movies.forEach(movie => {
-        const movieId = parseInt(movie.dataset.id);
-        const movieData = mockDatabase.movies.find(m => m.id === movieId);
-        if (genre === 'all' || movieData.genre === genre) movie.style.display = 'block';
-        else movie.style.display = 'none';
-    });
-    series.forEach(show => {
-        const seriesId = parseInt(show.dataset.id);
-        const seriesData = mockDatabase.series.find(s => s.id === seriesId);
-        if (genre === 'all' || seriesData.genre === genre) show.style.display = 'block';
-        else show.style.display = 'none';
-    });
-}
-
-// Listához adás/eltávolítás
-function toggleMyList(item, type) {
-    const index = myList.findIndex(x => x.id === item.id && x.type === type);
-    if (index >= 0) {
-        myList.splice(index, 1);
-    } else {
-        myList.push({ id: item.id, type });
-    }
-    localStorage.setItem('myList', JSON.stringify(myList));
-    
-    // Frissítjük a gombot
-    const addBtn = document.getElementById('detailAddBtn');
-    const isInMyList = myList.some(x => x.id === item.id && x.type === type);
-    addBtn.innerHTML = isInMyList ? '<i class="fas fa-check"></i> Listában van' : '<i class="fas fa-plus"></i> Listához adás';
-    addBtn.classList.toggle('outline', !isInMyList);
-    
-    // Ha a saját lista nézetben vagyunk, frissítjük
-    if (currentContentType === 'my-list') {
-        renderMyList();
-    }
-}
-
-// Következő rész gomb kezelése
-function setupNextEpisodeButton() {
-    const nextEpisodeBtn = document.getElementById('nextEpisodeBtn');
-    if (!currentDetailItem || currentDetailItem.type !== 'tv' || !currentEpisode) {
-        nextEpisodeBtn.style.display = 'none';
-        return;
-    }
-    
-    const currentSeason = currentDetailItem.seasons.find(s => s.season === currentEpisode.season);
-    if (!currentSeason) {
-        nextEpisodeBtn.style.display = 'none';
-        return;
-    }
-    
-    const currentEpisodeIndex = currentSeason.episodes.findIndex(e => e.id === currentEpisode.id);
-    if (currentEpisodeIndex < 0) {
-        nextEpisodeBtn.style.display = 'none';
-        return;
-    }
-    
-    // Van-e következő rész az évadban
-    if (currentEpisodeIndex < currentSeason.episodes.length - 1) {
-        nextEpisodeBtn.style.display = 'inline-flex';
-        nextEpisodeBtn.onclick = () => {
-            const nextEpisode = currentSeason.episodes[currentEpisodeIndex + 1];
-            currentEpisode = { ...nextEpisode, season: currentEpisode.season };
-            openVideoPlayer(
-                nextEpisode.video, 
-                currentDetailItem.id, 
-                'tv', 
-                `${currentDetailItem.title} - ${currentEpisode.season}. évad ${currentEpisodeIndex + 2}. rész`, 
-                currentDetailItem.poster
-            );
+        // App URL-ek definiálása
+        const appUrls = {
+          shopping: "https://5nsgxn.csb.app",
+          recipes: "https://6qx72n.csb.app",
+          spotify: "https://hfqpzt.csb.app",
+          streaming: "https://8qxpr3.csb.app",
         };
-        return;
-    }
-    
-    // Van-e következő évad
-    const currentSeasonIndex = currentDetailItem.seasons.findIndex(s => s.season === currentEpisode.season);
-    if (currentSeasonIndex < currentDetailItem.seasons.length - 1) {
-        const nextSeason = currentDetailItem.seasons[currentSeasonIndex + 1];
-        if (nextSeason.episodes.length > 0) {
-            nextEpisodeBtn.style.display = 'inline-flex';
-            nextEpisodeBtn.onclick = () => {
-                const nextEpisode = nextSeason.episodes[0];
-                currentEpisode = { ...nextEpisode, season: nextSeason.season };
-                openVideoPlayer(
-                    nextEpisode.video, 
-                    currentDetailItem.id, 
-                    'tv', 
-                    `${currentDetailItem.title} - ${nextSeason.season}. évad 1. rész`, 
-                    currentDetailItem.poster
-                );
-            };
+
+        // URL beviteli mezők feltöltése
+        document.getElementById("shopping-url-input").value = appUrls.shopping;
+        document.getElementById("recipes-url-input").value = appUrls.recipes;
+        document.getElementById("spotify-url-input").value = appUrls.spotify;
+        document.getElementById("streaming-url-input").value =
+          appUrls.streaming;
+
+        // App ikonok animációja
+        const appIcons = document.querySelectorAll(".app-icon");
+        appIcons.forEach((icon, index) => {
+          icon.style.animationDelay = `${index * 0.1}s`;
+          icon.style.opacity = "1";
+
+          // Kattintás esemény
+          icon.addEventListener("click", function () {
+            const appName = this.getAttribute("data-app");
+            openApp(appName);
+          });
+        });
+
+        // Dock ikonok eseményei
+        const dockIcons = document.querySelectorAll(".dock-icon");
+        dockIcons.forEach((icon, index) => {
+          icon.addEventListener("click", function () {
+            const apps = ["shopping", "recipes", "spotify", "settings"];
+            if (index < apps.length) {
+              openApp(apps[index]);
+            }
+          });
+        });
+
+        // App megnyitása
+        function openApp(appName) {
+          // Check if phone is locked
+          if (!lockScreen.classList.contains("unlocked")) {
+            showToast("🔒 Először oldja fel a készüléket");
             return;
-        }
-    }
-    
-    // Nincs több rész
-    nextEpisodeBtn.style.display = 'none';
-}
+          }
 
-// Eseményfigyelők beállítása
-function setupEventListeners() {
-    document.getElementById('searchBtn').addEventListener('click', () => {
-        document.getElementById('searchContainer').classList.toggle('active');
-        if (document.getElementById('searchContainer').classList.contains('active')) {
-            document.getElementById('searchInput').focus();
-        }
-    });
-    document.getElementById('closeBtn').addEventListener('click', () => {
-        document.getElementById('videoOverlay').classList.remove('active');
-        document.body.style.overflow = 'auto';
-        document.getElementById('videoPlayer').innerHTML = '';
-    });
-    document.getElementById('videoOverlay').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('videoOverlay')) {
-            document.getElementById('videoOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-            document.getElementById('videoPlayer').innerHTML = '';
-        }
-    });
-    document.getElementById('detailClose').addEventListener('click', () => {
-        document.getElementById('detailOverlay').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-    document.getElementById('detailPlayBtn').addEventListener('click', () => {
-        if (!currentDetailItem) return;
-        if (currentDetailItem.type === 'movie') {
-            openVideoPlayer(
-                currentDetailItem.video, 
-                currentDetailItem.id, 
-                'movie', 
-                currentDetailItem.title, 
-                currentDetailItem.poster
-            );
-        } else {
-            const firstSeason = currentDetailItem.seasons[0];
-            if (firstSeason && firstSeason.episodes.length > 0) {
-                currentEpisode = { ...firstSeason.episodes[0], season: firstSeason.season };
-                openVideoPlayer(
-                    firstSeason.episodes[0].video, 
-                    currentDetailItem.id, 
-                    'tv', 
-                    `${currentDetailItem.title} - 1. évad 1. rész`, 
-                    currentDetailItem.poster
-                );
+          const content = document.getElementById(`${appName}-content`);
+          const webview = document.getElementById(`${appName}-webview`);
+
+          // Animáció előkészítése
+          content.style.display = "flex";
+          setTimeout(() => {
+            content.classList.add("active");
+
+            // Webview betöltése (ha nem settings)
+            if (
+              appName !== "settings" &&
+              (!webview.src || webview.src === "about:blank")
+            ) {
+              webview.src = appUrls[appName];
             }
+          }, 10);
         }
-        document.getElementById('detailOverlay').classList.remove('active');
-    });
-    document.getElementById('detailAddBtn').addEventListener('click', () => {
-        if (currentDetailItem) {
-            toggleMyList(currentDetailItem, currentDetailItem.type);
+
+        // App bezárása
+        function closeApp() {
+          const activeApp = document.querySelector(".app-content.active");
+          if (activeApp) {
+            activeApp.classList.add("closing");
+            activeApp.style.transform = "translateY(100%)";
+
+            setTimeout(() => {
+              activeApp.classList.remove("active", "closing");
+              activeApp.style.display = "none";
+              activeApp.style.transform = "";
+            }, 500);
+          }
         }
-    });
-    document.getElementById('searchInput').addEventListener('input', function() {
-        const query = this.value.trim();
-        if (query.length > 2) {
-            const allContent = [...mockDatabase.movies, ...mockDatabase.series];
-            const results = allContent.filter(item => item.title.toLowerCase().includes(query.toLowerCase()));
-            const searchResults = document.getElementById('searchResults');
-            searchResults.innerHTML = results.slice(0, 8).map(item => {
-                const isMovie = item.duration;
-                return `
-                    <div class="search-item" data-id="${item.id}" data-type="${isMovie ? 'movie' : 'tv'}">
-                        <img src="${item.poster}" alt="${item.title}" class="search-item-img">
-                        <div class="search-item-info">
-                            <div class="search-item-title">${item.title}</div>
-                            <div class="search-item-meta">${isMovie ? 'Film' : 'Sorozat'} · ${item.year}</div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            searchResults.classList.add('active');
-            document.querySelectorAll('.search-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const contentId = parseInt(item.dataset.id);
-                    const contentType = item.dataset.type;
-                    const content = contentType === 'movie' 
-                        ? mockDatabase.movies.find(m => m.id === contentId)
-                        : mockDatabase.series.find(s => s.id === contentId);
-                    if (content) showContentDetails(content, contentType);
-                    document.getElementById('searchContainer').classList.remove('active');
-                    document.getElementById('searchInput').value = '';
-                    searchResults.innerHTML = '';
-                    searchResults.classList.remove('active');
-                });
-            });
-        } else document.getElementById('searchResults').innerHTML = '';
-    });
-    document.getElementById('playRandomBtn').addEventListener('click', () => {
-        if (!currentRandomItem) return;
-        if (currentRandomItem.duration) {
-            openVideoPlayer(
-                currentRandomItem.video, 
-                currentRandomItem.id, 
-                'movie', 
-                currentRandomItem.title, 
-                currentRandomItem.poster
-            );
-        } else {
-            const firstSeason = currentRandomItem.seasons[0];
-            if (firstSeason && firstSeason.episodes.length > 0) {
-                currentEpisode = { ...firstSeason.episodes[0], season: firstSeason.season };
-                openVideoPlayer(
-                    firstSeason.episodes[0].video, 
-                    currentRandomItem.id, 
-                    'tv', 
-                    `${currentRandomItem.title} - 1. évad 1. rész`, 
-                    currentRandomItem.poster
-                );
+
+        // Swipe gesture kezelése
+        let startY = null;
+        let currentApp = null;
+        let isSwiping = false;
+        let startTime = 0;
+        const swipeThreshold = 100; // Minimum distance to trigger close
+        const velocityThreshold = 0.3; // Minimum velocity to trigger close
+        const bottomAreaHeight = 50; // Only recognize swipe from bottom area
+
+        document.addEventListener(
+          "touchstart",
+          function (e) {
+            const activeApp = document.querySelector(".app-content.active");
+            if (activeApp && e.touches.length === 1) {
+              const touchY = e.touches[0].clientY;
+              const screenHeight = window.innerHeight;
+
+              // Only start swipe if touch is in bottom area
+              if (touchY > screenHeight - bottomAreaHeight) {
+                startY = touchY;
+                currentApp = activeApp;
+                isSwiping = true;
+                startTime = Date.now();
+                currentApp.classList.add("swiping");
+                currentApp.style.transition = "none";
+              }
             }
-        }
-    });
-    document.getElementById('newRandomBtn').addEventListener('click', loadRandomContent);
-    document.getElementById('randomBtn').addEventListener('click', loadRandomContent);
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            filterContentByType(this.dataset.type);
-        });
-    });
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterByGenre(this.dataset.filter);
-        });
-    });
-    
-    // Scroll esemény a headerhez
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            document.querySelector('header').classList.add('scrolled');
-        } else {
-            document.querySelector('header').classList.remove('scrolled');
-        }
-    });
-}
+          },
+          { passive: true }
+        );
 
-// Oldal betöltése
-function init() {
-    setupEventListeners();
-    renderContinueWatching();
-    loadRandomContent();
-    renderMovies();
-    renderSeries();
-    filterContentByType('all');
-}
+        document.addEventListener(
+          "touchmove",
+          function (e) {
+            if (!isSwiping || !startY) return;
 
-document.addEventListener('DOMContentLoaded', init);</script></body></html>
+            const touchY = e.touches[0].clientY;
+            const diff = touchY - startY;
+
+            // Only allow swipe up (negative diff)
+            if (diff < 0) {
+              const translateY = Math.max(diff, -window.innerHeight);
+              currentApp.style.transform = `translateY(${translateY}px)`;
+            }
+          },
+          { passive: true }
+        );
+
+        document.addEventListener(
+          "touchend",
+          function (e) {
+            if (!isSwiping || !startY || !currentApp) return;
+
+            const touchY = e.changedTouches[0].clientY;
+            const diff = touchY - startY;
+            const timeElapsed = Date.now() - startTime;
+            const velocity = Math.abs(diff) / timeElapsed;
+
+            // Check if swipe should close the app
+            if (diff < -swipeThreshold || velocity > velocityThreshold) {
+              closeApp();
+            } else {
+              // Return to original position
+              currentApp.style.transition =
+                "transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)";
+              currentApp.style.transform = "translateY(0)";
+
+              setTimeout(() => {
+                currentApp.style.transition = "";
+              }, 300);
+            }
+
+            // Reset
+            currentApp.classList.remove("swiping");
+            isSwiping = false;
+            startY = null;
+            currentApp = null;
+          },
+          { passive: true }
+        );
+
+        // URL mentése
+        window.saveUrl = function (appName) {
+          const input = document.getElementById(`${appName}-url-input`);
+          const url = input.value.trim();
+
+          if (url) {
+            // URL validáció
+            let validUrl = url;
+            if (
+              !validUrl.startsWith("http://") &&
+              !validUrl.startsWith("https://")
+            ) {
+              validUrl = "https://" + validUrl;
+            }
+
+            // Mentés JavaScript változóba
+            appUrls[appName] = validUrl;
+
+            // Webview frissítése
+            const webview = document.getElementById(`${appName}-webview`);
+            if (webview) {
+              webview.src = validUrl;
+            }
+
+            // Sikeres mentés visszajelzés
+            showToast(`✅ ${appName} URL sikeresen mentve`);
+          } else {
+            showToast("⚠️ Kérjük adj meg egy érvényes URL-t!");
+          }
+        };
+
+        // Háttérkép váltása
+        window.changeWallpaper = function (wallpaperId) {
+          const wallpapers = {
+            gradient1: "linear-gradient(160deg, #f5f7fa 0%, #c3cfe2 100%)",
+            gradient2: "linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%)",
+            gradient3: "linear-gradient(135deg, #3b82f6 0%, #1dd4af 100%)",
+            gradient4: "linear-gradient(135deg, #f97316 0%, #f59e0b 100%)",
+            gradient5: "linear-gradient(135deg, #ec4899 0%, #f472b6 100%)",
+            gradient6: "linear-gradient(135deg, #1db954 0%, #34d399 100%)",
+          };
+
+          // Convert gradient to data URL for better performance
+          const gradientToDataURL = (gradient) => {
+            return `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><linearGradient id="gradient" gradientTransform="rotate(160)"><stop offset="0%" stop-color="${gradient
+              .match(/#[0-9a-f]{6}/gi)[0]
+              .substring(1)}"/><stop offset="100%" stop-color="${gradient
+              .match(/#[0-9a-f]{6}/gi)[1]
+              .substring(
+                1
+              )}"/></linearGradient><rect width="100%" height="100%" fill="url(%23gradient)"/></svg>')`;
+          };
+
+          document.documentElement.style.setProperty(
+            "--current-wallpaper",
+            gradientToDataURL(wallpapers[wallpaperId])
+          );
+
+          // Aktív állapot frissítése
+          document.querySelectorAll(".wallpaper-option").forEach((option) => {
+            option.classList.remove("active");
+          });
+          document
+            .querySelector(`.wallpaper-option[data-wallpaper="${wallpaperId}"]`)
+            .classList.add("active");
+
+          showToast("🎨 Háttérkép megváltoztatva");
+        };
+
+        // Értesítés megjelenítése
+        function showToast(message) {
+          const toast = document.getElementById("toast");
+          toast.textContent = message;
+          toast.classList.add("show");
+
+          setTimeout(() => {
+            toast.classList.remove("show");
+          }, 3000);
+        }
+
+        // Webview scrollbar elrejtése
+        const style = document.createElement("style");
+        style.innerHTML = `
+                .webview-container::-webkit-scrollbar {
+                    display: none;
+                }
+                .webview {
+                    overflow: hidden !important;
+                }
+            `;
+        document.head.appendChild(style);
+      });
+    </script>
+  </body>
+</html>
